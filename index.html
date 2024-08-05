@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+/* General styles */
+  body {
+        font-family: 'Proxima Nova', Arial, sans-serif; /* Include Proxima Nova */
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+/* Section headers */
+    h2 {
+        font-size: 24px;
+        color: #333;
+    }
+
+  /* Form styles */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        height: 100px;
+        resize: vertical;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .button-group {
+        text-align: center;
+    }
+
+/* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+      button {
+            width: 100%;
+            font-size: 18px;
+        }
+      }
+
+    /* Hidden class */
+      .hidden {
+            display: none;
+        }
+
+    /* Checkbox and Privacy Notice */
+      #privacy-notice {
+            margin-bottom: 20px;
+        }
+
+      #privacy-notice input[type="checkbox"] {
+            margin-right: 10px;
+        }
+      .hidden {
+            display: none;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section input, .section select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+        }
+
+        .acceptance {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .acceptance input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selection -->
+    <div class="section" id="language-selection">
+        <h2>Choose Language</h2>
+        <button onclick="selectLanguage('en')">English</button>
+        <button onclick="selectLanguage('fil')">Filipino</button>
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="section hidden" id="privacy-notice">
+        <h2>Privacy Notice</h2>
+        <p>Placeholder text for the privacy notice. Please replace this with the actual text.</p>
+        <div class="acceptance">
+            <input type="checkbox" id="accept-privacy" />
+            <label for="accept-privacy">I accept the terms and conditions.</label>
+        </div>
+        <div class="button-group">
+            <button onclick="goToClientProfile()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Client Profile -->
+    <div class="section hidden" id="client-profile">
+        <h2>Client Profile</h2>
+        <form id="client-profile-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" />
+            </div>
+            <div>
+                <label for="contact">Contact No.:</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your contact number" />
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" />
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" />
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="">Prefer not to say</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div>
+                <label for="client-type">Type of Client:</label>
+                <select id="client-type" name="client-type">
+                    <option value="">Prefer not to say</option>
+                    <option value="citizen">Citizen</option>
+                    <option value="business">Businessman/woman</option>
+                    <option value="government">Government employee</option>
+                </select>
+            </div>
+            <div>
+                <label for="pwd">Do you have a disability?</label>
+                <select id="pwd" name="pwd">
+                    <option value="">Prefer not to say</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="submitClientProfile()">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Feedback Questions -->
+<div class="section hidden" id="feedback-questions">
+    <h2>Feedback Questions</h2>
+    <form id="feedback-form">
+        <div>
+            <label for="awareness">Are you aware of the Citizens Charter?</label>
+            <select id="awareness" name="awareness">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div>
+            <label for="visibility">How easy is it to see the Citizens Charter?</label>
+            <select id="visibility" name="visibility">
+                <option value="easy">Easy to see</option>
+                <option value="a-bit-easy">A bit easy to see</option>
+                <option value="a-bit-hard">A bit hard to see</option>
+                <option value="hard">Hard to see</option>
+            </select>
+        </div>
+        <div>
+            <label for="helpfulness">How has the Citizens Charter helped you?</label>
+            <select id="helpfulness" name="helpfulness">
+                <option value="has-helped-lot">Has helped a lot</option>
+                <option value="has-helped">Has helped</option>
+                <option value="not-helpful">Not helpful at all</option>
+            </select>
+        </div>
+         <!-- Repeat for SQD1 to SQD8 -->
+        <div>
+            <label for="overall-grade">SQD0. Overall Grade:</label>
+            <select id="overall-grade" name="overall-grade">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Repeat for SQD1 to SQD8 -->
+        <div>
+            <label for="sqd1">SQD1. Processing Speed:</label>
+            <select id="sqd1" name="sqd1">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd2">SQD2. Compliance of the office with the Correct process:</label>
+            <select id="sqd2" name="sqd2">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd3">SQD3. Facilities:</label>
+            <select id="sqd3" name="sqd3">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd4">SQD4. Being Informed of the Process:</label>
+            <select id="sqd4" name="sqd4">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd5">SQD5. Amount paid for the Process:</label>
+            <select id="sqd5" name="sqd5">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd6">SQD6. Fair treatment of Clients:</label>
+            <select id="sqd6" name="sqd6">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd7">SQD7. Helpfulness and courtesy of the staff:</label>
+            <select id="sqd7" name="sqd7">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="sqd8">SQD8. Processing Speed:</label>
+            <select id="sqd8" name="sqd8">
+                <option value="very-happy">Very Happy</option>
+                <option value="happy">Happy</option>
+                <option value="neutral">Neutral</option>
+                <option value="sad">Sad</option>
+                <option value="very-sad">Very Sad</option>
+            </select>
+        </div>
+        <!-- Add additional questions SQD2 to SQD8 similarly -->
+        <div>
+            <label for="comments">Comments and Suggestions:</label>
+            <textarea id="comments" name="comments" placeholder="Enter your comments and suggestions"></textarea>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+        </div>
+    </form>
+</div>
+
+    <script>
+        function selectLanguage(lang) {
+            // Placeholder function for language selection
+            document.getElementById('language-selection').classList.add('hidden');
+            document.getElementById('privacy-notice').classList.remove('hidden');
+        }
+
+        function goToClientProfile() {
+            // Check if the privacy notice checkbox is checked
+            if (document.getElementById('accept-privacy').checked) {
+                document.getElementById('privacy-notice').classList.add('hidden');
+                document.getElementById('client-profile').classList.remove('hidden');
+            } else {
+                alert('Please accept the privacy notice to continue.');
+            }
+        }
+
+        function submitClientProfile() {
+            // For now, just transition to the next section
+            document.getElementById('client-profile').classList.add('hidden');
+            // Future: Add next section reveal code here
+        }
+
+        function submitClientProfile() {
+        // Collect data from the form
+        var formData = {
+            name: document.getElementById('name').value || "Prefer not to say",
+            contact: document.getElementById('contact').value || "Prefer not to say",
+            age: document.getElementById('age').value || "Prefer not to say",
+            city: document.getElementById('city').value || "Prefer not to say",
+            gender: document.getElementById('gender').value || "Prefer not to say",
+            clientType: document.getElementById('client-type').value || "Prefer not to say",
+            pwd: document.getElementById('pwd').value || "Prefer not to say"
+        };
+
+        // Call the submitForm function to handle the data
+        submitForm(formData);
+    }
+
+    function submitForm(formData) {
+        // Send the formData to the server (Google Apps Script)
+        google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).submitForm(formData);
+    }
+
+    function onSuccess(response) {
+        // Handle the successful response
+        alert("Form submitted successfully!");
+        // Proceed to the next section or clear the form, etc.
+    }
+
+    function onFailure(error) {
+        // Handle the error
+        alert("There was an error submitting the form: " + error.message);
+    }
+
+    function submitFeedback() {
+        // Collect data from the feedback form
+        var feedbackData = {
+            awareness: document.getElementById('awareness').value || "Prefer not to say",
+            visibility: document.getElementById('visibility').value || "Prefer not to say",
+            helpfulness: document.getElementById('helpfulness').value || "Prefer not to say",
+            overallGrade: document.getElementById('overall-grade').value || "Prefer not to say",
+            sqd1: document.getElementById('sqd1').value || "Prefer not to say",
+            sqd2: document.getElementById('sqd2').value || "Prefer not to say",
+            sqd3: document.getElementById('sqd3').value || "Prefer not to say",
+            sqd4: document.getElementById('sqd4').value || "Prefer not to say",
+            sqd5: document.getElementById('sqd5').value || "Prefer not to say",
+            sqd6: document.getElementById('sqd6').value || "Prefer not to say",
+            sqd7: document.getElementById('sqd7').value || "Prefer not to say",
+            sqd8: document.getElementById('sqd8').value || "Prefer not to say",
+            comments: document.getElementById('comments').value || "No comments"
+        };
+
+        // Call the submitFeedback function to handle the data
+        submitFeedbackForm(feedbackData);
+    }
+
+    function submitFeedbackForm(feedbackData) {
+        // Send the feedbackData to the server (Google Apps Script)
+        google.script.run.withSuccessHandler(onFeedbackSuccess).withFailureHandler(onFeedbackFailure).submitFeedback(feedbackData);
+    }
+
+    function onFeedbackSuccess(response) {
+        // Handle the successful response
+        alert("Feedback submitted successfully!");
+        // Optionally, redirect to a thank you page or clear the form
+    }
+
+    function onFeedbackFailure(error) {
+        // Handle the error
+        alert("There was an error submitting the feedback: " + error.message);
+    }
+    </script>
+</body>
+</html>
