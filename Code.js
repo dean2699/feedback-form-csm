@@ -1,6 +1,9 @@
 // Code.gs
 function doGet(e) {
-  return HtmlService.createHtmlOutputFromFile('index');
+  var output = HtmlService.createHtmlOutputFromFile('index');
+  output.setTitle("Southern Mindanao CSM");
+  output.setFaviconUrl('https://i.imgur.com/5B9zRCt.png');
+  return output;
 }
 
 function doPost(e) {
