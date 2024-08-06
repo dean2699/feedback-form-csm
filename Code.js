@@ -1,3 +1,13 @@
+const client_profile_sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("CLIENT PROFILE SHEET");
+const csm_sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("CSM SHEET");
+const medical_assistance_sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Medical Database")
+const burial_assistance_sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Burial Database")
+
+const lastrow_cps = client_profile_sheet.getLastRow();
+const lastrow_csm = csm_sheet.getLastRow();
+const lastrow_ma = medical_assistance_sheet.getLastRow();
+const lastrow_ba = burial_assistance_sheet.getLastRow();
+
 // Code.gs
 function doGet(e) {
   var output = HtmlService.createHtmlOutputFromFile('index');
@@ -16,6 +26,7 @@ function submitForm(formData) {
   var response = "Client profile submitted successfully!";
   sheet.appendRow([
     new Date(),
+    formData.service,
     formData.name,
     formData.contact,
     formData.age,
@@ -48,4 +59,15 @@ function submitFeedback(feedbackData) {
     feedbackData.comments
   ]);
   return response;
+}
+
+function submitFeedbackAndSort(feedbackData) {
+  submitFeedback(feedbackData);
+  sortDataToSheets();
+}
+
+function sortDataToSheets(){
+var client_values = client_profile_sheet.getRange(lastrow_cps, 1, 1, 9).getValues()[0];
+var csm_values = csm_sheet.getRange(lastrow_csm, 1, 1, 14).getValues()[0];
+
 }
