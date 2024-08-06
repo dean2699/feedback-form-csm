@@ -4,87 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Adobe Fonts (Proxima Nova) -->
+    <link rel="stylesheet" href="https://use.typekit.net/YOUR_PROJECT_ID.css">
     <style>
-  /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+        /* General Styles */
+        body {
+            font-family: 'Proxima Nova', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-.section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+        .section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-h2 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 0;
-}
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 0;
+        }
 
-p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
-}
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
 
-/* Button Group */
-.button-group {
-    margin-top: 20px;
-}
+        /* Button Group */
+        .button-group {
+            margin-top: 20px;
+        }
 
-.button-group button {
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
+        .button-group button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-.button-group button:hover {
-    background-color: #0056b3;
-}
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
 
-/* Hidden Class */
-.hidden {
-    display: none;
-}
+        /* Hidden Class */
+        .hidden {
+            display: none;
+        }
 
-/* Specific Styles for Acknowledgment Pages */
-#acknowledgement-page-en {
-    background-color: #e7f1ff;
-    border-left: 5px solid #007bff;
-}
+        /* Specific Styles for Acknowledgment Pages */
+        #acknowledgement-page-en {
+            background-color: #e7f1ff;
+            border-left: 5px solid #007bff;
+        }
 
-#acknowledgement-page-fil {
-    background-color: #e7ffe7;
-    border-left: 5px solid #28a745;
-}
+        #acknowledgement-page-fil {
+            background-color: #e7ffe7;
+            border-left: 5px solid #28a745;
+        }
+
+        .error-message {
+            color: red; /* Red text color */
+            font-weight: bold; /* Bold text for visibility */
+            display: none; /* Initially hidden */
+        }
+
+        .error-message.visible {
+            display: inline; /* Display error messages when visible */
+        }
+
+        .error-message::before {
+            content: '⚠️ '; /* Exclamation point icon */
+        }
     </style>
 </head>
 <body>
      <!-- Language Selection -->
-     <div id="language-selection">
+     <div id="language-selection" class="section">
         <h2>Choose Language</h2>
         <button onclick="selectLanguage('en')">English</button>
         <button onclick="selectLanguage('fil')">Filipino</button>
     </div>
 
     <!-- Privacy Notice -->
-<div id="privacy-notice" class="hidden">
+<div id="privacy-notice" class="section hidden">
+    <h2>Privacy Notice</h2>
     <div id="privacy-notice-en" class="language-content">
         <!-- English Privacy Notice -->
         <p>
@@ -150,107 +169,137 @@ p {
     </div>
 </div>
 
-    <!-- Client Profile -->
-    <div class="section hidden" id="client-profile-en">
-        <h2>Client Profile</h2>
-        <form id="client-profile-form-en">
-            <div>
-                <label for="name-en">Name:</label>
-                <input type="text" id="name-en" name="name" placeholder="Enter your name" />
-            </div>
-            <div>
-                <label for="contact-en">Contact Number:</label>
-                <input type="text" id="contact-en" name="contact" placeholder="Enter your contact number" />
-            </div>
-            <div>
-                <label for="age-en">Age:</label>
-                <input type="number" id="age-en" name="age" placeholder="Enter your age" />
-            </div>
-            <div>
-                <label for="city-en">City:</label>
-                <input type="text" id="city-en" name="city" placeholder="Enter your city" />
-            </div>
-            <div>
-                <label for="gender-en">Gender:</label>
-                <select id="gender-en" name="gender">
-                    <option value="">Prefer not to say</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div>
-                <label for="client-type-en">Type of Client:</label>
-                <select id="client-type-en" name="client-type">
-                    <option value="">Prefer not to say</option>
-                    <option value="citizen">Citizen</option>
-                    <option value="business">Businessman/woman</option>
-                    <option value="government">Government employee</option>
-                </select>
-            </div>
-            <div>
-                <label for="pwd-en">Do you have a disability?</label>
-                <select id="pwd-en" name="pwd">
-                    <option value="">Prefer not to say</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-            <div class="button-group">
-                <button type="button" onclick="submitClientProfileEn()">Next</button>
-            </div>
-        </form>
-    </div>
+       <!-- Client Profile -->
+<div class="section hidden" id="client-profile-en">
+    <h2>Client Profile</h2>
+    <form id="client-profile-form-en">
+        <div>
+            <label for="name-en">Name:</label>
+            <input type="text" id="name-en" name="name" placeholder="Enter your name" />
+            <span id="name-error" class="error-message"></span>
+        </div>
+        <div>
+            <label for="contact-en">Contact Number:</label>
+            <input type="text" id="contact-en" name="contact" placeholder="Enter your contact number" />
+            <span id="contact-error" class="error-message"></span>
+        </div>
+        <div>
+            <label for="age-en">Age:</label>
+            <input type="number" id="age-en" name="age" placeholder="Enter your age" />
+            <span id="age-error" class="error-message"></span>
+        </div>
+        <div>
+            <label for="region-en">Region:</label>
+            <select id="region-en" name="region">
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Region X">Region X</option>
+                <option value="Region XI">Region XI</option>
+                <option value="Region XII">Region XII</option>
+            </select>
+            <span id="region-error" class="error-message"></span>
+        </div>
+        <div>
+            <label for="gender-en">Gender:</label>
+            <select id="gender-en" name="gender">
+                <option value="" disabled selected>Select your answer</option>
+                <option value="N/A">Prefer not to say</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <span id="gender-error" class="error-message"></span>
+        </div>
+        <div>
+            <label for="client-type-en">Type of Client:</label>
+            <select id="client-type-en" name="client-type">
+                <option value="" disabled selected>Select your answer</option>
+                <option value="N/A">Prefer not to say</option>
+                <option value="Citizen">Citizen</option>
+                <option value="Businessman/woman">Businessman/woman</option>
+                <option value="Government employee">Government employee</option>
+            </select>
+            <span id="client-type-error" class="error-message"></span>
+        </div>
+        <div>
+            <label for="pwd-en">Do you have a disability?</label>
+            <select id="pwd-en" name="pwd">
+                <option value="" disabled selected>Select your answer</option>
+                <option value="N/A">Prefer not to say</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <span id="pwd-error" class="error-message"></span>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="submitClientProfileEn()">Next</button>
+        </div>
+    </form>
+</div>
 
     <!-- Filipino Client Profile -->
-    <div class="section hidden" id="client-profile-fil">
-        <h2>Profile ng Kliyente</h2>
-        <form id="client-profile-form-fil">
-            <div>
-                <label for="name-fil">Pangalan:</label>
-                <input type="text" id="name-fil" name="name" placeholder="Ilagay ang iyong pangalan" />
-            </div>
-            <div>
-                <label for="contact-fil">Numero ng Contact:</label>
-                <input type="text" id="contact-fil" name="contact" placeholder="Ilagay ang iyong numero ng contact" />
-            </div>
-            <div>
-                <label for="age-fil">Edad:</label>
-                <input type="number" id="age-fil" name="age" placeholder="Ilagay ang iyong edad" />
-            </div>
-            <div>
-                <label for="city-fil">Lungsod:</label>
-                <input type="text" id="city-fil" name="city" placeholder="Ilagay ang iyong lungsod" />
-            </div>
-            <div>
-                <label for="gender-fil">Kasarian:</label>
-                <select id="gender-fil" name="gender">
-                    <option value="">Mas gusto kong hindi sabihin</option>
-                    <option value="male">Lalaki</option>
-                    <option value="female">Babae</option>
-                </select>
-            </div>
-            <div>
-                <label for="client-type-fil">Uri ng Kliyente:</label>
-                <select id="client-type-fil" name="client-type">
-                    <option value="">Mas gusto kong hindi sabihin</option>
-                    <option value="citizen">Mamamayan</option>
-                    <option value="business">Negosyante</option>
-                    <option value="government">Manggagawa ng Gobyerno</option>
-                </select>
-            </div>
-            <div>
-                <label for="pwd-fil">May kapansanan ka ba?</label>
-                <select id="pwd-fil" name="pwd">
-                    <option value="">Mas gusto kong hindi sabihin</option>
-                    <option value="yes">Oo</option>
-                    <option value="no">Hindi</option>
-                </select>
-            </div>
-            <div class="button-group">
-                <button type="button" onclick="submitClientProfileFil()">Susunod</button>
-            </div>
-        </form>
-    </div>
+<div class="section hidden" id="client-profile-fil">
+    <h2>Profile ng Kliyente</h2>
+    <form id="client-profile-form-fil">
+        <div>
+            <label for="name-fil">Pangalan:</label>
+            <input type="text" id="name-fil" name="name" placeholder="Ilagay ang iyong pangalan" />
+            <span id="name-error-fil" class="error-message"></span>
+        </div>
+        <div>
+            <label for="contact-fil">Numero ng Contact:</label>
+            <input type="text" id="contact-fil" name="contact" placeholder="Ilagay ang iyong numero ng contact" />
+            <span id="contact-error-fil" class="error-message"></span>
+        </div>
+        <div>
+            <label for="age-fil">Edad:</label>
+            <input type="number" id="age-fil" name="age" placeholder="Ilagay ang iyong edad" />
+            <span id="age-error-fil" class="error-message"></span>
+        </div>
+        <div>
+            <label for="region-fil">Rehiyon:</label>
+            <select id="region-fil" name="region">
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Region X">Region X</option>
+                <option value="Region XI">Region XI</option>
+                <option value="Region XII">Region XII</option>
+            </select>
+            <span id="region-error-fil" class="error-message"></span>
+        </div>
+        <div>
+            <label for="gender-fil">Kasarian:</label>
+            <select id="gender-fil" name="gender">
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
+                <option value="Lalaki">Lalaki</option>
+                <option value="Babae">Babae</option>
+            </select>
+            <span id="gender-error-fil" class="error-message"></span>
+        </div>
+        <div>
+            <label for="client-type-fil">Uri ng Kliyente:</label>
+            <select id="client-type-fil" name="client-type">
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
+                <option value="Mamamayan">Mamamayan</option>
+                <option value="Negosyo">Negosyante</option>
+                <option value="Kawani ng Gobyerno">Manggagawa ng Gobyerno</option>
+            </select>
+            <span id="client-type-error-fil" class="error-message"></span>
+        </div>
+        <div>
+            <label for="pwd-fil">May kapansanan ka ba?</label>
+            <select id="pwd-fil" name="pwd">
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
+                <option value="Oo">Oo</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+            <span id="pwd-error-fil" class="error-message"></span>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="submitClientProfileFil()">Susunod</button>
+        </div>
+    </form>
+</div>
 
     <!-- Feedback Questions -->
     <div class="section hidden" id="feedback-questions-en">
@@ -259,124 +308,149 @@ p {
         <div>
             <label for="awareness-en">Are you aware of the Citizens Charter?</label>
             <select id="awareness-en" name="awareness">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Oo">Yes</option>
+                <option value="Hindi">No</option>
+                <option value="Nalaman ko ang Citizen’s Charter nang makita ko ito sa tanggapang ito.">I learned about the Citizen's Charter when I saw it in this office</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <div>
             <label for="visibility-en">How easy is it to see the Citizens Charter?</label>
             <select id="visibility-en" name="visibility">
-                <option value="easy">Easy to see</option>
-                <option value="a-bit-easy">A bit easy to see</option>
-                <option value="a-bit-hard">A bit hard to see</option>
-                <option value="hard">Hard to see</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Madaling makita">Easy to see</option>
+                <option value="Medyo madaling makita">A bit easy to see</option>
+                <option value="Mahirap makita">A bit hard to see</option>
+                <option value="Hindi makita">Hard to see</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <div>
             <label for="helpfulness-en">How has the Citizens Charter helped you?</label>
             <select id="helpfulness-en" name="helpfulness">
-                <option value="has-helped-lot">Has helped a lot</option>
-                <option value="has-helped">Has helped</option>
-                <option value="not-helpful">Not helpful at all</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na nakatulong">Has helped a lot</option>
+                <option value="Nakatulong">Has helped</option>
+                <option value="Hindi nakatulong">Not helpful at all</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
          <!-- Repeat for SQD1 to SQD8 -->
         <div>
             <label for="sqd0-en">SQD0. Overall Grade:</label>
             <select id="sqd0-en" name="sqd0">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Repeat for SQD1 to SQD8 -->
         <div>
             <label for="sqd1-en">SQD1. Processing Speed:</label>
             <select id="sqd1-en" name="sqd1">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd2-en">SQD2. Compliance of the office with the Correct process:</label>
             <select id="sqd2-en" name="sqd2">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd3-en">SQD3. Facilities:</label>
             <select id="sqd3-en" name="sqd3">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd4-en">SQD4. Being Informed of the Process:</label>
             <select id="sqd4-en" name="sqd4">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd5-en">SQD5. Amount paid for the Process:</label>
             <select id="sqd5-en" name="sqd5">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd6-en">SQD6. Fair treatment of Clients:</label>
             <select id="sqd6-en" name="sqd6">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd7-en">SQD7. Helpfulness and courtesy of the staff:</label>
             <select id="sqd7-en" name="sqd7">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
             <label for="sqd8-en">SQD8. Processing Speed:</label>
             <select id="sqd8-en" name="sqd8">
-                <option value="very-happy">Very Happy</option>
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-                <option value="very-sad">Very Sad</option>
+                <option value="" disabled selected>Select your answer</option>
+                <option value="Lubos na Nasiyahan">Very Happy</option>
+                <option value="Nasiyahan">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Sad</option>
+                <option value="Lubos na Hindi Naisayahan">Very Sad</option>
+                <option value="N/A">Prefer not to say</option>
             </select>
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
@@ -385,7 +459,7 @@ p {
             <textarea id="comments-en" name="comments" placeholder="Enter your comments and suggestions"></textarea>
         </div>
         <div class="button-group">
-            <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+            <button type="button" onclick="submitFeedbackEn()">Submit Feedback</button>
         </div>
     </form>
 </div>
@@ -397,118 +471,143 @@ p {
         <div>
             <label for="awareness-fil">Alam mo ba ang Citizens Charter?</label>
             <select id="awareness-fil" name="awareness">
-                <option value="yes">Oo</option>
-                <option value="no">Hindi</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Oo">Oo</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Nalaman ko ang Citizen’s Charter nang makita ko ito sa tanggapang ito.">Nalaman ko ang Citizen’s Charter nang makita ko ito sa tanggapang ito.</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="visibility-fil">Gaano ito kadali makita ang Citizens Charter?</label>
             <select id="visibility-fil" name="visibility">
-                <option value="easy">Madaling makita</option>
-                <option value="a-bit-easy">Medyo madaling makita</option>
-                <option value="a-bit-hard">Medyo mahirap makita</option>
-                <option value="hard">Mahigit makita</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Madaling makita">Madaling makita</option>
+                <option value="Medyo madaling makita">Medyo madaling makita</option>
+                <option value="Mahirap makita">Mahirap makita</option>
+                <option value="Hindi makita">Hindi makita</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="helpfulness-fil">Paano ka natulungan ng Citizens Charter?</label>
             <select id="helpfulness-fil" name="helpfulness">
-                <option value="has-helped-lot">Malaki ang naitulong</option>
-                <option value="has-helped">Nakatulong</option>
-                <option value="not-helpful">Walang naitulong</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na nakatulong">Lubos na nakatulong</option>
+                <option value="Nakatulong">Nakatulong</option>
+                <option value="Hindi nakatulong">Hindi nakatulong</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <!-- Ulitin para sa SQD1 hanggang SQD8 -->
         <div>
             <label for="sqd0-fil">SQD0. Pangkalahatang Grado:</label>
             <select id="sqd0-fil" name="sqd0">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <!-- Ulitin para sa SQD1 hanggang SQD8 -->
         <div>
             <label for="sqd1-fil">SQD1. Bilis ng proseso:</label>
             <select id="sqd1-fil" name="sqd1">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <!-- Idagdag ang karagdagang mga tanong SQD2 hanggang SQD8 sa katulad na paraan -->
         <div>
             <label for="sqd2-fil">SQD2. Pagsunod ng tanggapan sa tamang proseso:</label>
             <select id="sqd2-fil" name="sqd2">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="sqd3-fil">SQD3. Pasilidad:</label>
             <select id="sqd3-fil" name="sqd3">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="sqd4-fil">SQD4. Pagkakaroon ng Impormasyon tungkol sa proseso:</label>
             <select id="sqd4-fil" name="sqd4">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="sqd5-fil">SQD5. Halagang ibinayad para sa serbisyo:</label>
             <select id="sqd5-fil" name="sqd5">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="sqd6-fil">SQD6. Pantay na pagtrato sa mga kliyente:</label>
             <select id="sqd6-fil" name="sqd6">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="sqd7-fil">SQD7. Pagiging matulungin at magalang ng mga kawani:</label>
             <select id="sqd7-fil" name="sqd7">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
             <label for="sqd8-fil">SQD8. Pagbigay ng hininging serbisyo:</label>
             <select id="sqd8-fil" name="sqd8">
-                <option value="very-happy">Sobra akong Masaya</option>
-                <option value="happy">Masaya</option>
-                <option value="neutral">Walang Pakialam</option>
-                <option value="sad">Malungkot</option>
-                <option value="very-sad">Sobra akong Malungkot</option>
+                <option value="" disabled selected>Piliin ang iyong sagot</option>
+                <option value="Lubos na Nasiyahan">Lubos na Nasiyahan</option>
+                <option value="Nasiyahan">Nasiyahan</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Hindi Naisayahan">Hindi Naisayahan</option>
+                <option value="Lubos na Hindi Naisayahan">Lubos na Hindi Naisayahan</option>
+                <option value="N/A">Mas gusto kong hindi sabihin</option>
             </select>
         </div>
         <div>
@@ -516,7 +615,7 @@ p {
             <textarea id="comments-fil" name="comments" placeholder="Ilagay ang iyong mga komento at suhestiyon"></textarea>
         </div>
         <div class="button-group">
-            <button type="button" onclick="submitFeedback()">I-submit ang Feedback</button>
+            <button type="button" onclick="submitFeedbackFil()">I-submit ang Feedback</button>
         </div>
     </form>
 </div>
@@ -526,7 +625,7 @@ p {
     <h2>Thank You for Your Feedback!</h2>
     <p>Your responses have been successfully submitted. We appreciate the feedback you provide us to serve you better next time.</p>
     <div class="button-group">
-        <button onclick="redirectToLanguageSelection()">Return to Language Selection</button>
+        <button onclick="redirectToLanguageSelectionEn()">Return to Language Selection</button>
     </div>
 </div>
 
@@ -534,7 +633,7 @@ p {
     <h2>Salamat sa Iyong Feedback!</h2>
     <p>Ang iyong mga sagot ay matagumpay na naisumite. Kami ay nagpapahalaga sa feedback na iyong ibinigay upang mas mapabuti ang aming serbisyo sa susunod na pagkakataon.</p>
     <div class="button-group">
-        <button onclick="redirectToLanguageSelection()">Bumalik sa Pagpili ng Wika</button>
+        <button onclick="redirectToLanguageSelectionFil()">Bumalik sa Pagpili ng Wika</button>
     </div>
 </div>
 
@@ -556,119 +655,253 @@ p {
         }
     }
 
-    function goToClientProfileEn(lang) {
+    function goToClientProfileEn() {
         if (document.getElementById('accept-privacy-en').checked) {
-            document.getElementById(`accept-privacy-${selectedLanguage}`).classList.add('hidden');
-            document.getElementById(`privacy-notice-${selectedLanguage}`).classList.add('hidden');
-            document.getElementById(`client-profile-${selectedLanguage}`).classList.remove('hidden');
+            document.getElementById(`accept-privacy-en`).classList.add('hidden');
+            document.getElementById(`privacy-notice`).classList.add('hidden');
+            document.getElementById(`client-profile-en`).classList.remove('hidden');
         } else {
             alert('Please accept the privacy notice to continue.');
         }
     }
 
-    function goToClientProfileFil(lang) {
+    function goToClientProfileFil() {
         if (document.getElementById('accept-privacy-fil').checked) {
-            document.getElementById(`accept-privacy-${selectedLanguage}`).classList.add('hidden');
-            document.getElementById(`privacy-notice-${selectedLanguage}`).classList.add('hidden');
-            document.getElementById(`client-profile-${selectedLanguage}`).classList.remove('hidden');
+            document.getElementById(`accept-privacy-fil`).classList.add('hidden');
+            document.getElementById(`privacy-notice`).classList.add('hidden');
+            document.getElementById(`client-profile-fil`).classList.remove('hidden');
         } else {
             alert('Please accept the privacy notice to continue.');
         }
     }
 
     function submitClientProfileEn() {
-    var formData = {
-        name: document.getElementById(`name-en`).value || "Prefer not to say",
-        contact: document.getElementById(`contact-en`).value || "Prefer not to say",
-        age: document.getElementById(`age-en`).value || "Prefer not to say",
-        city: document.getElementById(`city-en`).value || "Prefer not to say",
-        gender: document.getElementById(`gender-en`).value || "Prefer not to say",
-        clientType: document.getElementById(`client-type-en`).value || "Prefer not to say",
-        pwd: document.getElementById(`pwd-en`).value || "Prefer not to say"
-    };
-    
-    fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.text())
-    .then(result => {
-        console.log(result);
-        document.getElementById(`client-profile-en`).classList.add('hidden');
-        document.getElementById(`feedback-questions-en`).classList.remove('hidden');
-        submitForm(formData);
-    })
-    .catch(error => console.error('Error:', error));
-}
+    // Clear previous error messages and hide them
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.textContent = '';
+        el.classList.remove('visible');
+    });
 
-function submitClientProfileFil(lang) {
-    var formData = {
-        name: document.getElementById(`name-fil`).value || "Prefer not to say",
-        contact: document.getElementById(`contact-fil`).value || "Prefer not to say",
-        age: document.getElementById(`age-fil`).value || "Prefer not to say",
-        city: document.getElementById(`city-fil`).value || "Prefer not to say",
-        gender: document.getElementById(`gender-fil`).value || "Prefer not to say",
-        clientType: document.getElementById(`client-type-fil`).value || "Prefer not to say",
-        pwd: document.getElementById(`pwd-fil`).value || "Prefer not to say"
-    };
-    
-    fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.text())
-    .then(result => {
-        console.log(result);
-        document.getElementById(`client-profile-fil`).classList.add('hidden');
-        document.getElementById(`feedback-questions-fil`).classList.remove('hidden');
-        submitForm(formData);
-    })
-    .catch(error => console.error('Error:', error));
-}
+    // Get form values
+    var name = document.getElementById('name-en').value.trim();
+    var contact = document.getElementById('contact-en').value.trim();
+    var age = parseInt(document.getElementById('age-en').value, 10);
+    var region = document.getElementById('region-en').value;
+    var gender = document.getElementById('gender-en').value;
+    var clientType = document.getElementById('client-type-en').value;
+    var pwd = document.getElementById('pwd-en').value;
 
-function submitForm(formData) {
-    // Send the formData to the server (Google Apps Script)
-    google.script.run.withSuccessHandler(onFormSubmitSuccess).withFailureHandler(onFailure).submitForm(formData);
-}
+    var isValid = true;
 
-    function submitFeedback(lang) {
-        var feedbackData = {
-            awareness: document.getElementById(`awareness-${lang}`).value,
-            visibility: document.getElementById(`visibility-${lang}`).value,
-            helpfulness: document.getElementById(`helpfulness-${lang}`).value,
-            sqd0: document.getElementById(`sqd0-${lang}`).value,
-            sqd1: document.getElementById(`sqd1-${lang}`).value,
-            sqd2: document.getElementById(`sqd2-${lang}`).value,
-            sqd3: document.getElementById(`sqd3-${lang}`).value,
-            sqd4: document.getElementById(`sqd4-${lang}`).value,
-            sqd5: document.getElementById(`sqd5-${lang}`).value,
-            sqd6: document.getElementById(`sqd6-${lang}`).value,
-            sqd7: document.getElementById(`sqd7-${lang}`).value,
-            sqd8: document.getElementById(`sqd8-${lang}`).value,
-            comments: document.getElementById(`comments-${lang}`).value
-        };
-        console.log('Feedback Data:', feedbackData);
-        document.getElementById(`feedback-questions-${lang}`).classList.add('hidden');
-        document.getElementById(`acknowledgement-page-${lang}`).classList.remove('hidden');
+    // Validate age
+    if (isNaN(age) || age <= 0 || age > 120) {
+        document.getElementById('age-error').textContent = 'Age must be between 1 and 120.';
+        document.getElementById('age-error').classList.add('visible');
+        isValid = false;
     }
 
-    function onFormSubmitSuccess(response) {
-    console.log('Form submitted successfully. Response:', response); // Debug log
-    alert("Client profile submitted successfully!");
-    // Proceed to the feedback questions section
-    document.getElementById('client-profile').classList.add('hidden');
-    document.getElementById('feedback-questions').classList.remove('hidden');
+    // Validate region
+    if (!region || region === 'Select your answer') {
+        document.getElementById('region-error').textContent = 'Region is required.';
+        document.getElementById('region-error').classList.add('visible');
+        isValid = false;
+    }
+
+    // Other validations can be added here as needed
+
+    // If form is valid, proceed with submission
+    if (isValid) {
+        var formData = {
+            name: name || "Prefer not to say",
+            contact: contact || "Prefer not to say",
+            age: age || "Prefer not to say",
+            region: region || "Prefer not to say",
+            gender: gender || "Prefer not to say",
+            clientType: clientType || "Prefer not to say",
+            pwd: pwd || "Prefer not to say"
+        };
+        
+        fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById('client-profile-en').classList.add('hidden');
+            document.getElementById('feedback-questions-en').classList.remove('hidden');
+            submitFormData(formData);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+function submitClientProfileFil() {
+    // Clear previous error messages and hide them
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.textContent = '';
+        el.classList.remove('visible');
+    });
+
+    // Get form values
+    var name = document.getElementById('name-fil').value.trim();
+    var contact = document.getElementById('contact-fil').value.trim();
+    var age = parseInt(document.getElementById('age-fil').value, 10);
+    var region = document.getElementById('region-fil').value;
+    var gender = document.getElementById('gender-fil').value;
+    var clientType = document.getElementById('client-type-fil').value;
+    var pwd = document.getElementById('pwd-fil').value;
+
+    var isValid = true;
+
+    // Validate age
+    if (isNaN(age) || age <= 0 || age > 120) {
+        document.getElementById('age-error-fil').textContent = 'Ang edad ay dapat nasa pagitan ng 1 at 120.';
+        document.getElementById('age-error-fil').classList.add('visible');
+        isValid = false;
+    }
+
+    // Validate region
+    if (!region || region === 'Piliin ang iyong sagot') {
+        document.getElementById('region-error-fil').textContent = 'Ang rehiyon ay kinakailangan.';
+        document.getElementById('region-error-fil').classList.add('visible');
+        isValid = false;
+    }
+
+    // Other validations can be added here as needed
+
+    // If form is valid, proceed with submission
+    if (isValid) {
+        var formData = {
+            name: name || "Mas gusto kong hindi sabihin",
+            contact: contact || "Mas gusto kong hindi sabihin",
+            age: age || "Mas gusto kong hindi sabihin",
+            region: region || "Mas gusto kong hindi sabihin",
+            gender: gender || "Mas gusto kong hindi sabihin",
+            clientType: clientType || "Mas gusto kong hindi sabihin",
+            pwd: pwd || "Mas gusto kong hindi sabihin"
+        };
+        
+        fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById('client-profile-fil').classList.add('hidden');
+            document.getElementById('feedback-questions-fil').classList.remove('hidden');
+            submitFormData(formData);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+    function submitFeedbackEn() {
+        var feedbackData = {
+            awareness: document.getElementById(`awareness-en`).value,
+            visibility: document.getElementById(`visibility-en`).value,
+            helpfulness: document.getElementById(`helpfulness-en`).value,
+            sqd0: document.getElementById(`sqd0-en`).value,
+            sqd1: document.getElementById(`sqd1-en`).value,
+            sqd2: document.getElementById(`sqd2-en`).value,
+            sqd3: document.getElementById(`sqd3-en`).value,
+            sqd4: document.getElementById(`sqd4-en`).value,
+            sqd5: document.getElementById(`sqd5-en`).value,
+            sqd6: document.getElementById(`sqd6-en`).value,
+            sqd7: document.getElementById(`sqd7-en`).value,
+            sqd8: document.getElementById(`sqd8-en`).value,
+            comments: document.getElementById(`comments-en`).value
+        };
+
+        fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(feedbackData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById(`feedback-questions-en`).classList.add('hidden');
+            document.getElementById(`acknowledgement-page-en`).classList.remove('hidden');
+            submitFeedbackData(feedbackData);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function submitFeedbackFil() {
+        var feedbackData = {
+            awareness: document.getElementById(`awareness-fil`).value,
+            visibility: document.getElementById(`visibility-fil`).value,
+            helpfulness: document.getElementById(`helpfulness-fil`).value,
+            sqd0: document.getElementById(`sqd0-fil`).value,
+            sqd1: document.getElementById(`sqd1-fil`).value,
+            sqd2: document.getElementById(`sqd2-fil`).value,
+            sqd3: document.getElementById(`sqd3-fil`).value,
+            sqd4: document.getElementById(`sqd4-fil`).value,
+            sqd5: document.getElementById(`sqd5-fil`).value,
+            sqd6: document.getElementById(`sqd6-fil`).value,
+            sqd7: document.getElementById(`sqd7-fil`).value,
+            sqd8: document.getElementById(`sqd8-fil`).value,
+            comments: document.getElementById(`comments-fil`).value
+        };
+
+        fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(feedbackData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById(`feedback-questions-fil`).classList.add('hidden');
+            document.getElementById(`acknowledgement-page-fil`).classList.remove('hidden');
+            submitFeedbackData(feedbackData);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function redirectToLanguageSelectionEn() {
+    // Hide acknowledgement page
+    document.getElementById('acknowledgement-page-en').classList.add('hidden');
+
+    // Show language selection page
+    document.getElementById('language-selection').classList.remove('hidden');
+    }
+
+    function redirectToLanguageSelectionFil() {
+    // Hide acknowledgement page
+    document.getElementById('acknowledgement-page-fil').classList.add('hidden');
+
+    // Show language selection page
+    document.getElementById('language-selection').classList.remove('hidden');
+    }
+
+    function submitFormData(formData) {
+        google.script.run
+            .withFailureHandler(onFailure)
+            .submitForm(formData);
+    }
+
+    function submitFeedbackData(feedbackData) {
+        google.script.run
+            .withFailureHandler(onFailure)
+            .submitFeedback(feedbackData);
     }
 
     function onFailure(error) {
-        // Handle the error
-        alert("There was an error submitting the form: " + error.message);
+        console.error('Form submission failed:', error);
+        alert('An error occurred while submitting the form. Please try again.');
     }
     
 </script>
