@@ -5,193 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
     <style>
-/* General styles */
-  body {
-        font-family: 'Proxima Nova', Arial, sans-serif; /* Include Proxima Nova */
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
+  /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
-    .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+.section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-/* Section headers */
-    h2 {
-        font-size: 24px;
-        color: #333;
-    }
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+}
 
-  /* Form styles */
-    form {
-        display: flex;
-        flex-direction: column;
-    }
+p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
 
-    label {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+/* Button Group */
+.button-group {
+    margin-top: 20px;
+}
 
-  input[type="text"],
-  input[type="number"],
-  input[type="date"],
-    select,
-    textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
+.button-group button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
-    textarea {
-        height: 100px;
-        resize: vertical;
-    }
+.button-group button:hover {
+    background-color: #0056b3;
+}
 
-    button {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        background-color: #007bff;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-    }
+/* Hidden Class */
+.hidden {
+    display: none;
+}
 
-    button:hover {
-        background-color: #0056b3;
-    }
+/* Specific Styles for Acknowledgment Pages */
+#acknowledgement-page-en {
+    background-color: #e7f1ff;
+    border-left: 5px solid #007bff;
+}
 
-    .button-group {
-        text-align: center;
-    }
-
-/* Responsive design */
-  @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-      button {
-            width: 100%;
-            font-size: 18px;
-        }
-      }
-
-    /* Hidden class */
-      .hidden {
-            display: none;
-        }
-
-    /* Checkbox and Privacy Notice */
-      #privacy-notice {
-            margin-bottom: 20px;
-        }
-
-      #privacy-notice input[type="checkbox"] {
-            margin-right: 10px;
-        }
-      .hidden {
-            display: none;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section input, .section select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .button-group button {
-            padding: 10px 20px;
-        }
-
-        .acceptance {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .acceptance input[type="checkbox"] {
-            margin-right: 10px;
-        }
+#acknowledgement-page-fil {
+    background-color: #e7ffe7;
+    border-left: 5px solid #28a745;
+}
     </style>
 </head>
 <body>
-    <!-- Language Selection -->
-    <div class="section" id="language-selection">
+     <!-- Language Selection -->
+     <div id="language-selection">
         <h2>Choose Language</h2>
         <button onclick="selectLanguage('en')">English</button>
         <button onclick="selectLanguage('fil')">Filipino</button>
     </div>
 
     <!-- Privacy Notice -->
-    <div class="section hidden" id="privacy-notice">
-        <h2>Privacy Notice</h2>
-        <p>Placeholder text for the privacy notice. Please replace this with the actual text.</p>
+<div id="privacy-notice" class="hidden">
+    <div id="privacy-notice-en" class="language-content">
+        <!-- English Privacy Notice -->
+        <p>
+            This is to inform the client that the personal data you provide to the Office of the Vice President, Southern Mindanao Satellite Office, will be used for the purpose of fulfilling the requirements of the Client Satisfaction Survey required by the Anti-Red Tape Authority (ARTA) and to further improve the services we provide to our clients. The client has the right to decline submitting their personal data to fill out the Customer Satisfaction Survey.
+        </p>
+        <p>
+            The Office of the Vice President, Southern Mindanao Satellite Office is committed to ensuring that all personal data processed by the office are protected at all times and in accordance with Republic Act No. 10173, otherwise known as the Data Privacy Act of 2012, its corresponding Implementing Rules and Procedures, and related issuances of the National Privacy Commission.
+        </p>
+        <p>
+            The Data subjects have the right to:
+        </p>
+        <ul>
+            <li>Demand and be informed of the details about the type of personal data processed, the purpose of processing, and how they are being processed by the office including its sources, recipients, methods, disclosures to third parties and their identities, automated processes, manner of storage, period of retention, manner of disposal, and any changes to such processing activities before the same is undertaken.</li>
+            <li>Reasonable access to their personal data upon demand. The tenants have the right to review and amend their personal data processed by the office in case there are errors.</li>
+            <li>Dispute inaccuracy or error in personal data processed by the office.</li>
+            <li>Reject further processing of their personal data, including the right to suspend, withdraw, and remove their personal data in possession of the office which are falsely collected or unlawfully processed.</li>
+        </ul>
+        <p>
+            Upon submitting this form, the Data Subject has read and understood the Privacy Notice and has given consent to the office to process the given data.
+        </p>
+        <p>
+            If there are any queries, complaints, and/or suggestions regarding our privacy notice, you may let the person you are in contact with at the office know so we can improve our current practices.
+        </p>
         <div class="acceptance">
-            <input type="checkbox" id="accept-privacy" />
-            <label for="accept-privacy">I accept the terms and conditions.</label>
+            <input type="checkbox" id="accept-privacy-en" />
+            <label for="accept-privacy-en">I accept the terms and conditions.</label>
         </div>
         <div class="button-group">
-            <button onclick="goToClientProfile()">Continue</button>
+            <button onclick="goToClientProfileEn()">Continue</button>
         </div>
     </div>
+    
+    <!-- Filipino Privacy Notice -->
+    <div id="privacy-notice-fil" class="language-content hidden">
+        <p>
+            Ito ay upang ipaalam sa kliyente na ang personal na datos na ibinibigay mo sa Tanggapan ng Pangalawang Pangulo, Southern Mindanao Satellite Office, ay gagamitin para sa layunin ng pagtugon sa mga kinakailangan ng Client Satisfaction Survey na kinakailangan ng Anti-Red Tape Authority (ARTA) at upang higit pang mapabuti ang mga serbisyong ibinibigay namin sa aming mga kliyente. May karapatan ang kliyente na tumangging isumite ang kanilang personal na datos upang punan ang Customer Satisfaction Survey.
+        </p>
+        <p>
+            Ang Tanggapan ng Pangalawang Pangulo, Southern Mindanao Satellite Office ay nakatuon sa pagtiyak na ang lahat ng personal na datos na pinoproseso ng opisina ay protektado sa lahat ng oras at alinsunod sa Republic Act No. 10173, kilala rin bilang Data Privacy Act of 2012, mga kaugnay na Patakaran ng Pagpapatupad, at mga kaugnay na regulasyon ng National Privacy Commission.
+        </p>
+        <p>
+            Ang mga Data Subjects ay may karapatan na:
+        </p>
+        <ul>
+            <li>Humiling at maipaalam ang mga detalye tungkol sa uri ng personal na datos na pinoproseso, layunin ng pagpoproseso, at kung paano sila pinoproseso ng opisina kabilang ang mga pinagkukunan, mga tumatanggap, mga pamamaraan, mga pagsisiwalat sa mga ikatlong partido at kanilang mga pagkakakilanlan, mga awtomatikong proseso, paraan ng imbakan, panahon ng pagpapanatili, paraan ng pagtatapon, at anumang mga pagbabago sa mga aktibidad ng pagpoproseso bago isagawa ang mga ito.</li>
+            <li>Makakakuha ng makatwirang pag-access sa kanilang personal na datos kapag humiling. May karapatan ang mga nangungupahan na suriin at baguhin ang kanilang personal na datos na pinoproseso ng opisina kung sakaling may mga pagkakamali.</li>
+            <li>Magpahayag ng kawastuhan o error sa personal na datos na pinoproseso ng opisina.</li>
+            <li>Tumanggi sa karagdagang pagpoproseso ng kanilang personal na datos, kabilang ang karapatan na suspendihin, bawiin, at alisin ang kanilang personal na datos na hawak ng opisina na mali o labag sa batas na nakolekta.</li>
+        </ul>
+        <p>
+            Sa pagsusumite ng form na ito, nabasa at naunawaan ng Data Subject ang Privacy Notice at binigyan ng pahintulot ang opisina na iproseso ang ibinigay na datos.
+        </p>
+        <p>
+            Kung mayroon kang anumang mga tanong, reklamo, at/o mungkahi tungkol sa aming privacy notice, maaari mong ipaalam sa taong nakikipag-ugnayan ka sa opisina upang mapabuti namin ang aming kasalukuyang mga kasanayan.
+        </p>
+        <div class="acceptance">
+            <input type="checkbox" id="accept-privacy-fil" />
+            <label for="accept-privacy-fil">I accept the privacy notice</label>
+        </div>
+        <div class="button-group">
+            <button onclick="goToClientProfileFil()">Continue</button>
+        </div>
+    </div>
+</div>
 
     <!-- Client Profile -->
-    <div class="section hidden" id="client-profile">
+    <div class="section hidden" id="client-profile-en">
         <h2>Client Profile</h2>
-        <form id="client-profile-form">
+        <form id="client-profile-form-en">
             <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" />
+                <label for="name-en">Name:</label>
+                <input type="text" id="name-en" name="name" placeholder="Enter your name" />
             </div>
             <div>
-                <label for="contact">Contact No.:</label>
-                <input type="text" id="contact" name="contact" placeholder="Enter your contact number" />
+                <label for="contact-en">Contact Number:</label>
+                <input type="text" id="contact-en" name="contact" placeholder="Enter your contact number" />
             </div>
             <div>
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" placeholder="Enter your age" />
+                <label for="age-en">Age:</label>
+                <input type="number" id="age-en" name="age" placeholder="Enter your age" />
             </div>
             <div>
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" placeholder="Enter your city" />
+                <label for="city-en">City:</label>
+                <input type="text" id="city-en" name="city" placeholder="Enter your city" />
             </div>
             <div>
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
+                <label for="gender-en">Gender:</label>
+                <select id="gender-en" name="gender">
                     <option value="">Prefer not to say</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
             </div>
             <div>
-                <label for="client-type">Type of Client:</label>
-                <select id="client-type" name="client-type">
+                <label for="client-type-en">Type of Client:</label>
+                <select id="client-type-en" name="client-type">
                     <option value="">Prefer not to say</option>
                     <option value="citizen">Citizen</option>
                     <option value="business">Businessman/woman</option>
@@ -199,33 +188,84 @@
                 </select>
             </div>
             <div>
-                <label for="pwd">Do you have a disability?</label>
-                <select id="pwd" name="pwd">
+                <label for="pwd-en">Do you have a disability?</label>
+                <select id="pwd-en" name="pwd">
                     <option value="">Prefer not to say</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
             </div>
             <div class="button-group">
-                <button type="button" onclick="submitClientProfile()">Next</button>
+                <button type="button" onclick="submitClientProfileEn()">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Filipino Client Profile -->
+    <div class="section hidden" id="client-profile-fil">
+        <h2>Profile ng Kliyente</h2>
+        <form id="client-profile-form-fil">
+            <div>
+                <label for="name-fil">Pangalan:</label>
+                <input type="text" id="name-fil" name="name" placeholder="Ilagay ang iyong pangalan" />
+            </div>
+            <div>
+                <label for="contact-fil">Numero ng Contact:</label>
+                <input type="text" id="contact-fil" name="contact" placeholder="Ilagay ang iyong numero ng contact" />
+            </div>
+            <div>
+                <label for="age-fil">Edad:</label>
+                <input type="number" id="age-fil" name="age" placeholder="Ilagay ang iyong edad" />
+            </div>
+            <div>
+                <label for="city-fil">Lungsod:</label>
+                <input type="text" id="city-fil" name="city" placeholder="Ilagay ang iyong lungsod" />
+            </div>
+            <div>
+                <label for="gender-fil">Kasarian:</label>
+                <select id="gender-fil" name="gender">
+                    <option value="">Mas gusto kong hindi sabihin</option>
+                    <option value="male">Lalaki</option>
+                    <option value="female">Babae</option>
+                </select>
+            </div>
+            <div>
+                <label for="client-type-fil">Uri ng Kliyente:</label>
+                <select id="client-type-fil" name="client-type">
+                    <option value="">Mas gusto kong hindi sabihin</option>
+                    <option value="citizen">Mamamayan</option>
+                    <option value="business">Negosyante</option>
+                    <option value="government">Manggagawa ng Gobyerno</option>
+                </select>
+            </div>
+            <div>
+                <label for="pwd-fil">May kapansanan ka ba?</label>
+                <select id="pwd-fil" name="pwd">
+                    <option value="">Mas gusto kong hindi sabihin</option>
+                    <option value="yes">Oo</option>
+                    <option value="no">Hindi</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="submitClientProfileFil()">Susunod</button>
             </div>
         </form>
     </div>
 
     <!-- Feedback Questions -->
-<div class="section hidden" id="feedback-questions">
-    <h2>Feedback Questions</h2>
-    <form id="feedback-form">
+    <div class="section hidden" id="feedback-questions-en">
+        <h2>Feedback Questions</h2>
+        <form id="feedback-form-en">
         <div>
-            <label for="awareness">Are you aware of the Citizens Charter?</label>
-            <select id="awareness" name="awareness">
+            <label for="awareness-en">Are you aware of the Citizens Charter?</label>
+            <select id="awareness-en" name="awareness">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
         </div>
         <div>
-            <label for="visibility">How easy is it to see the Citizens Charter?</label>
-            <select id="visibility" name="visibility">
+            <label for="visibility-en">How easy is it to see the Citizens Charter?</label>
+            <select id="visibility-en" name="visibility">
                 <option value="easy">Easy to see</option>
                 <option value="a-bit-easy">A bit easy to see</option>
                 <option value="a-bit-hard">A bit hard to see</option>
@@ -233,8 +273,8 @@
             </select>
         </div>
         <div>
-            <label for="helpfulness">How has the Citizens Charter helped you?</label>
-            <select id="helpfulness" name="helpfulness">
+            <label for="helpfulness-en">How has the Citizens Charter helped you?</label>
+            <select id="helpfulness-en" name="helpfulness">
                 <option value="has-helped-lot">Has helped a lot</option>
                 <option value="has-helped">Has helped</option>
                 <option value="not-helpful">Not helpful at all</option>
@@ -242,8 +282,8 @@
         </div>
          <!-- Repeat for SQD1 to SQD8 -->
         <div>
-            <label for="overall-grade">SQD0. Overall Grade:</label>
-            <select id="overall-grade" name="overall-grade">
+            <label for="sqd0-en">SQD0. Overall Grade:</label>
+            <select id="sqd0-en" name="sqd0">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -253,8 +293,8 @@
         </div>
         <!-- Repeat for SQD1 to SQD8 -->
         <div>
-            <label for="sqd1">SQD1. Processing Speed:</label>
-            <select id="sqd1" name="sqd1">
+            <label for="sqd1-en">SQD1. Processing Speed:</label>
+            <select id="sqd1-en" name="sqd1">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -264,8 +304,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd2">SQD2. Compliance of the office with the Correct process:</label>
-            <select id="sqd2" name="sqd2">
+            <label for="sqd2-en">SQD2. Compliance of the office with the Correct process:</label>
+            <select id="sqd2-en" name="sqd2">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -275,8 +315,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd3">SQD3. Facilities:</label>
-            <select id="sqd3" name="sqd3">
+            <label for="sqd3-en">SQD3. Facilities:</label>
+            <select id="sqd3-en" name="sqd3">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -286,8 +326,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd4">SQD4. Being Informed of the Process:</label>
-            <select id="sqd4" name="sqd4">
+            <label for="sqd4-en">SQD4. Being Informed of the Process:</label>
+            <select id="sqd4-en" name="sqd4">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -297,8 +337,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd5">SQD5. Amount paid for the Process:</label>
-            <select id="sqd5" name="sqd5">
+            <label for="sqd5-en">SQD5. Amount paid for the Process:</label>
+            <select id="sqd5-en" name="sqd5">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -308,8 +348,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd6">SQD6. Fair treatment of Clients:</label>
-            <select id="sqd6" name="sqd6">
+            <label for="sqd6-en">SQD6. Fair treatment of Clients:</label>
+            <select id="sqd6-en" name="sqd6">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -319,8 +359,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd7">SQD7. Helpfulness and courtesy of the staff:</label>
-            <select id="sqd7" name="sqd7">
+            <label for="sqd7-en">SQD7. Helpfulness and courtesy of the staff:</label>
+            <select id="sqd7-en" name="sqd7">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -330,8 +370,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="sqd8">SQD8. Processing Speed:</label>
-            <select id="sqd8" name="sqd8">
+            <label for="sqd8-en">SQD8. Processing Speed:</label>
+            <select id="sqd8-en" name="sqd8">
                 <option value="very-happy">Very Happy</option>
                 <option value="happy">Happy</option>
                 <option value="neutral">Neutral</option>
@@ -341,8 +381,8 @@
         </div>
         <!-- Add additional questions SQD2 to SQD8 similarly -->
         <div>
-            <label for="comments">Comments and Suggestions:</label>
-            <textarea id="comments" name="comments" placeholder="Enter your comments and suggestions"></textarea>
+            <label for="comments-en">Comments and Suggestions:</label>
+            <textarea id="comments-en" name="comments" placeholder="Enter your comments and suggestions"></textarea>
         </div>
         <div class="button-group">
             <button type="button" onclick="submitFeedback()">Submit Feedback</button>
@@ -350,98 +390,288 @@
     </form>
 </div>
 
-    <script>
-        function selectLanguage(lang) {
-            // Placeholder function for language selection
-            document.getElementById('language-selection').classList.add('hidden');
-            document.getElementById('privacy-notice').classList.remove('hidden');
+<!-- Mga Tanong sa Feedback -->
+<div class="section hidden" id="feedback-questions-fil">
+    <h2>Mga Tanong sa Feedback</h2>
+    <form id="feedback-form-fil">
+        <div>
+            <label for="awareness-fil">Alam mo ba ang Citizens Charter?</label>
+            <select id="awareness-fil" name="awareness">
+                <option value="yes">Oo</option>
+                <option value="no">Hindi</option>
+            </select>
+        </div>
+        <div>
+            <label for="visibility-fil">Gaano ito kadali makita ang Citizens Charter?</label>
+            <select id="visibility-fil" name="visibility">
+                <option value="easy">Madaling makita</option>
+                <option value="a-bit-easy">Medyo madaling makita</option>
+                <option value="a-bit-hard">Medyo mahirap makita</option>
+                <option value="hard">Mahigit makita</option>
+            </select>
+        </div>
+        <div>
+            <label for="helpfulness-fil">Paano ka natulungan ng Citizens Charter?</label>
+            <select id="helpfulness-fil" name="helpfulness">
+                <option value="has-helped-lot">Malaki ang naitulong</option>
+                <option value="has-helped">Nakatulong</option>
+                <option value="not-helpful">Walang naitulong</option>
+            </select>
+        </div>
+        <!-- Ulitin para sa SQD1 hanggang SQD8 -->
+        <div>
+            <label for="sqd0-fil">SQD0. Pangkalahatang Grado:</label>
+            <select id="sqd0-fil" name="sqd0">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <!-- Ulitin para sa SQD1 hanggang SQD8 -->
+        <div>
+            <label for="sqd1-fil">SQD1. Bilis ng proseso:</label>
+            <select id="sqd1-fil" name="sqd1">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <!-- Idagdag ang karagdagang mga tanong SQD2 hanggang SQD8 sa katulad na paraan -->
+        <div>
+            <label for="sqd2-fil">SQD2. Pagsunod ng tanggapan sa tamang proseso:</label>
+            <select id="sqd2-fil" name="sqd2">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd3-fil">SQD3. Pasilidad:</label>
+            <select id="sqd3-fil" name="sqd3">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd4-fil">SQD4. Pagkakaroon ng Impormasyon tungkol sa proseso:</label>
+            <select id="sqd4-fil" name="sqd4">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd5-fil">SQD5. Halagang ibinayad para sa serbisyo:</label>
+            <select id="sqd5-fil" name="sqd5">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd6-fil">SQD6. Pantay na pagtrato sa mga kliyente:</label>
+            <select id="sqd6-fil" name="sqd6">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd7-fil">SQD7. Pagiging matulungin at magalang ng mga kawani:</label>
+            <select id="sqd7-fil" name="sqd7">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd8-fil">SQD8. Pagbigay ng hininging serbisyo:</label>
+            <select id="sqd8-fil" name="sqd8">
+                <option value="very-happy">Sobra akong Masaya</option>
+                <option value="happy">Masaya</option>
+                <option value="neutral">Walang Pakialam</option>
+                <option value="sad">Malungkot</option>
+                <option value="very-sad">Sobra akong Malungkot</option>
+            </select>
+        </div>
+        <div>
+            <label for="comments-fil">Mga Komento at Suhestiyon:</label>
+            <textarea id="comments-fil" name="comments" placeholder="Ilagay ang iyong mga komento at suhestiyon"></textarea>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="submitFeedback()">I-submit ang Feedback</button>
+        </div>
+    </form>
+</div>
+
+<!-- Acknowledgment Page -->
+<div class="section hidden" id="acknowledgement-page-en">
+    <h2>Thank You for Your Feedback!</h2>
+    <p>Your responses have been successfully submitted. We appreciate the feedback you provide us to serve you better next time.</p>
+    <div class="button-group">
+        <button onclick="redirectToLanguageSelection()">Return to Language Selection</button>
+    </div>
+</div>
+
+<div class="section hidden" id="acknowledgement-page-fil">
+    <h2>Salamat sa Iyong Feedback!</h2>
+    <p>Ang iyong mga sagot ay matagumpay na naisumite. Kami ay nagpapahalaga sa feedback na iyong ibinigay upang mas mapabuti ang aming serbisyo sa susunod na pagkakataon.</p>
+    <div class="button-group">
+        <button onclick="redirectToLanguageSelection()">Bumalik sa Pagpili ng Wika</button>
+    </div>
+</div>
+
+<script>
+    let selectedLanguage = 'en'; // Default language
+
+    function selectLanguage(lang) {
+        selectedLanguage = lang;
+        if (lang === 'en') {
+        document.querySelectorAll('.language-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`privacy-notice-en`).classList.remove('hidden');
+        document.getElementById('language-selection').classList.add('hidden');
+        document.getElementById('privacy-notice').classList.remove('hidden');
+        } else if (lang === 'fil') { 
+        document.querySelectorAll('.language-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`privacy-notice-fil`).classList.remove('hidden');
+        document.getElementById('language-selection').classList.add('hidden');
+        document.getElementById('privacy-notice').classList.remove('hidden');
         }
+    }
 
-        function goToClientProfile() {
-            // Check if the privacy notice checkbox is checked
-            if (document.getElementById('accept-privacy').checked) {
-                document.getElementById('privacy-notice').classList.add('hidden');
-                document.getElementById('client-profile').classList.remove('hidden');
-            } else {
-                alert('Please accept the privacy notice to continue.');
-            }
+    function goToClientProfileEn(lang) {
+        if (document.getElementById('accept-privacy-en').checked) {
+            document.getElementById(`accept-privacy-${selectedLanguage}`).classList.add('hidden');
+            document.getElementById(`privacy-notice-${selectedLanguage}`).classList.add('hidden');
+            document.getElementById(`client-profile-${selectedLanguage}`).classList.remove('hidden');
+        } else {
+            alert('Please accept the privacy notice to continue.');
         }
+    }
 
-        function submitClientProfile() {
-            // For now, just transition to the next section
-            document.getElementById('client-profile').classList.add('hidden');
-            // Future: Add next section reveal code here
+    function goToClientProfileFil(lang) {
+        if (document.getElementById('accept-privacy-fil').checked) {
+            document.getElementById(`accept-privacy-${selectedLanguage}`).classList.add('hidden');
+            document.getElementById(`privacy-notice-${selectedLanguage}`).classList.add('hidden');
+            document.getElementById(`client-profile-${selectedLanguage}`).classList.remove('hidden');
+        } else {
+            alert('Please accept the privacy notice to continue.');
         }
+    }
 
-        function submitClientProfile() {
-        // Collect data from the form
-        var formData = {
-            name: document.getElementById('name').value || "Prefer not to say",
-            contact: document.getElementById('contact').value || "Prefer not to say",
-            age: document.getElementById('age').value || "Prefer not to say",
-            city: document.getElementById('city').value || "Prefer not to say",
-            gender: document.getElementById('gender').value || "Prefer not to say",
-            clientType: document.getElementById('client-type').value || "Prefer not to say",
-            pwd: document.getElementById('pwd').value || "Prefer not to say"
-        };
-
-        // Call the submitForm function to handle the data
+    function submitClientProfileEn() {
+    var formData = {
+        name: document.getElementById(`name-en`).value || "Prefer not to say",
+        contact: document.getElementById(`contact-en`).value || "Prefer not to say",
+        age: document.getElementById(`age-en`).value || "Prefer not to say",
+        city: document.getElementById(`city-en`).value || "Prefer not to say",
+        gender: document.getElementById(`gender-en`).value || "Prefer not to say",
+        clientType: document.getElementById(`client-type-en`).value || "Prefer not to say",
+        pwd: document.getElementById(`pwd-en`).value || "Prefer not to say"
+    };
+    
+    fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log(result);
+        document.getElementById(`client-profile-en`).classList.add('hidden');
+        document.getElementById(`feedback-questions-en`).classList.remove('hidden');
         submitForm(formData);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function submitClientProfileFil(lang) {
+    var formData = {
+        name: document.getElementById(`name-fil`).value || "Prefer not to say",
+        contact: document.getElementById(`contact-fil`).value || "Prefer not to say",
+        age: document.getElementById(`age-fil`).value || "Prefer not to say",
+        city: document.getElementById(`city-fil`).value || "Prefer not to say",
+        gender: document.getElementById(`gender-fil`).value || "Prefer not to say",
+        clientType: document.getElementById(`client-type-fil`).value || "Prefer not to say",
+        pwd: document.getElementById(`pwd-fil`).value || "Prefer not to say"
+    };
+    
+    fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log(result);
+        document.getElementById(`client-profile-fil`).classList.add('hidden');
+        document.getElementById(`feedback-questions-fil`).classList.remove('hidden');
+        submitForm(formData);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function submitForm(formData) {
+    // Send the formData to the server (Google Apps Script)
+    google.script.run.withSuccessHandler(onFormSubmitSuccess).withFailureHandler(onFailure).submitForm(formData);
+}
+
+    function submitFeedback(lang) {
+        var feedbackData = {
+            awareness: document.getElementById(`awareness-${lang}`).value,
+            visibility: document.getElementById(`visibility-${lang}`).value,
+            helpfulness: document.getElementById(`helpfulness-${lang}`).value,
+            sqd0: document.getElementById(`sqd0-${lang}`).value,
+            sqd1: document.getElementById(`sqd1-${lang}`).value,
+            sqd2: document.getElementById(`sqd2-${lang}`).value,
+            sqd3: document.getElementById(`sqd3-${lang}`).value,
+            sqd4: document.getElementById(`sqd4-${lang}`).value,
+            sqd5: document.getElementById(`sqd5-${lang}`).value,
+            sqd6: document.getElementById(`sqd6-${lang}`).value,
+            sqd7: document.getElementById(`sqd7-${lang}`).value,
+            sqd8: document.getElementById(`sqd8-${lang}`).value,
+            comments: document.getElementById(`comments-${lang}`).value
+        };
+        console.log('Feedback Data:', feedbackData);
+        document.getElementById(`feedback-questions-${lang}`).classList.add('hidden');
+        document.getElementById(`acknowledgement-page-${lang}`).classList.remove('hidden');
     }
 
-    function submitForm(formData) {
-        // Send the formData to the server (Google Apps Script)
-        google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).submitForm(formData);
-    }
-
-    function onSuccess(response) {
-        // Handle the successful response
-        alert("Form submitted successfully!");
-        // Proceed to the next section or clear the form, etc.
+    function onFormSubmitSuccess(response) {
+    console.log('Form submitted successfully. Response:', response); // Debug log
+    alert("Client profile submitted successfully!");
+    // Proceed to the feedback questions section
+    document.getElementById('client-profile').classList.add('hidden');
+    document.getElementById('feedback-questions').classList.remove('hidden');
     }
 
     function onFailure(error) {
         // Handle the error
         alert("There was an error submitting the form: " + error.message);
     }
-
-    function submitFeedback() {
-        // Collect data from the feedback form
-        var feedbackData = {
-            awareness: document.getElementById('awareness').value || "Prefer not to say",
-            visibility: document.getElementById('visibility').value || "Prefer not to say",
-            helpfulness: document.getElementById('helpfulness').value || "Prefer not to say",
-            overallGrade: document.getElementById('overall-grade').value || "Prefer not to say",
-            sqd1: document.getElementById('sqd1').value || "Prefer not to say",
-            sqd2: document.getElementById('sqd2').value || "Prefer not to say",
-            sqd3: document.getElementById('sqd3').value || "Prefer not to say",
-            sqd4: document.getElementById('sqd4').value || "Prefer not to say",
-            sqd5: document.getElementById('sqd5').value || "Prefer not to say",
-            sqd6: document.getElementById('sqd6').value || "Prefer not to say",
-            sqd7: document.getElementById('sqd7').value || "Prefer not to say",
-            sqd8: document.getElementById('sqd8').value || "Prefer not to say",
-            comments: document.getElementById('comments').value || "No comments"
-        };
-
-        // Call the submitFeedback function to handle the data
-        submitFeedbackForm(feedbackData);
-    }
-
-    function submitFeedbackForm(feedbackData) {
-        // Send the feedbackData to the server (Google Apps Script)
-        google.script.run.withSuccessHandler(onFeedbackSuccess).withFailureHandler(onFeedbackFailure).submitFeedback(feedbackData);
-    }
-
-    function onFeedbackSuccess(response) {
-        // Handle the successful response
-        alert("Feedback submitted successfully!");
-        // Optionally, redirect to a thank you page or clear the form
-    }
-
-    function onFeedbackFailure(error) {
-        // Handle the error
-        alert("There was an error submitting the feedback: " + error.message);
-    }
-    </script>
+    
+</script>
 </body>
 </html>
+

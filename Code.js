@@ -1,7 +1,11 @@
 // Code.gs
-
 function doGet(e) {
   return HtmlService.createHtmlOutputFromFile('index');
+}
+
+function doPost(e) {
+  var formData = JSON.parse(e.postData.contents);
+  return ContentService.createTextOutput(submitForm(formData));
 }
 
 function submitForm(formData) {

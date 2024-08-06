@@ -1,2 +1,0 @@
-# ABOUT
-A Web Application that utilizes HTML, CSS, Javascript, Google Apps script, Google Docs, Google Sheets, Google Drive to gather feedback from clients and their experience with the service rendered by the office and to comply with the Customer Satisfaction Survey.
