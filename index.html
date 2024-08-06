@@ -9,94 +9,137 @@
     <!-- Adobe Fonts (Proxima Nova) -->
     <link rel="stylesheet" href="https://use.typekit.net/YOUR_PROJECT_ID.css">
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Proxima Nova', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+/* General Styles */
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        .section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+.section {
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    width: 100%;
+}
 
-        h2 {
-            font-size: 24px;
-            color: #333;
-            margin-top: 0;
-        }
+h2 {
+    font-size: 28px;
+    color: #009700;
+    margin-top: 0;
+}
 
-        p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-        }
+h3 {
+    font-size: 24px;
+    color: #333;
+}
 
-        /* Button Group */
-        .button-group {
-            margin-top: 20px;
-        }
+p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
 
-        .button-group button {
-            background-color: #007bff;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
-        .button-group button:hover {
-            background-color: #0056b3;
-        }
+input[type="text"], input[type="number"], select, textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
-        /* Hidden Class */
-        .hidden {
-            display: none;
-        }
+textarea {
+    height: 120px;
+    resize: vertical;
+}
 
-        /* Specific Styles for Acknowledgment Pages */
-        #acknowledgement-page-en {
-            background-color: #e7f1ff;
-            border-left: 5px solid #007bff;
-        }
+button {
+    background-color: #009700;
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
-        #acknowledgement-page-fil {
-            background-color: #e7ffe7;
-            border-left: 5px solid #28a745;
-        }
+button:hover {
+    background-color: #007b00;
+}
 
-        .error-message {
-            color: red; /* Red text color */
-            font-weight: bold; /* Bold text for visibility */
-            display: none; /* Initially hidden */
-        }
+.hidden {
+    display: none;
+}
 
-        .error-message.visible {
-            display: inline; /* Display error messages when visible */
-        }
+.error-message {
+    color: red;
+    font-weight: bold;
+    display: none;
+}
 
-        .error-message::before {
-            content: '⚠️ '; /* Exclamation point icon */
-        }
+.error-message.visible {
+    display: block;
+}
+
+.error-message::before {
+    content: '⚠️ ';
+}
+
+/* Privacy Notice Styles */
+.acceptance {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 20px; /* Adjust spacing below the checkbox */
+}
+
+.acceptance input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+.acceptance label {
+    margin: 0; /* Remove margin to align with checkbox */
+}
+
+/* Specific Styles for Acknowledgment Pages */
+#acknowledgement-page-en {
+    background-color: #e7f1ff;
+    border-left: 5px solid #009700;
+}
+
+#acknowledgement-page-fil {
+    background-color: #e7ffe7;
+    border-left: 5px solid #28a745;
+}
+
     </style>
 </head>
 <body>
      <!-- Language Selection -->
-     <div id="language-selection" class="section">
-        <h2>Choose Language</h2>
+    <div id="language-selection" class="section">
+        <h3>Choose Language</h3>
+        <p>Thank you for your time in providing feedback regarding the service of our Office. We appreciate the feedback which helps us learn to serve you better!</p>
         <button onclick="selectLanguage('en')">English</button>
         <button onclick="selectLanguage('fil')">Filipino</button>
     </div>
@@ -625,7 +668,7 @@
     <h2>Thank You for Your Feedback!</h2>
     <p>Your responses have been successfully submitted. We appreciate the feedback you provide us to serve you better next time.</p>
     <div class="button-group">
-        <button onclick="redirectToLanguageSelectionEn()">Return to Language Selection</button>
+        <button onclick="redirectToLanguageSelection()">Return to Language Selection</button>
     </div>
 </div>
 
@@ -633,7 +676,7 @@
     <h2>Salamat sa Iyong Feedback!</h2>
     <p>Ang iyong mga sagot ay matagumpay na naisumite. Kami ay nagpapahalaga sa feedback na iyong ibinigay upang mas mapabuti ang aming serbisyo sa susunod na pagkakataon.</p>
     <div class="button-group">
-        <button onclick="redirectToLanguageSelectionFil()">Bumalik sa Pagpili ng Wika</button>
+        <button onclick="redirectToLanguageSelection()">Bumalik sa Pagpili ng Wika</button>
     </div>
 </div>
 
@@ -642,24 +685,23 @@
 
     function selectLanguage(lang) {
         selectedLanguage = lang;
+        // Hide all language content and sections
+        document.querySelectorAll('.language-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById('language-selection').classList.add('hidden');
+        document.getElementById('privacy-notice').classList.remove('hidden');
+
+        // Show the appropriate privacy notice based on the selected language
         if (lang === 'en') {
-        document.querySelectorAll('.language-content').forEach(el => el.classList.add('hidden'));
-        document.getElementById(`privacy-notice-en`).classList.remove('hidden');
-        document.getElementById('language-selection').classList.add('hidden');
-        document.getElementById('privacy-notice').classList.remove('hidden');
-        } else if (lang === 'fil') { 
-        document.querySelectorAll('.language-content').forEach(el => el.classList.add('hidden'));
-        document.getElementById(`privacy-notice-fil`).classList.remove('hidden');
-        document.getElementById('language-selection').classList.add('hidden');
-        document.getElementById('privacy-notice').classList.remove('hidden');
+            document.getElementById('privacy-notice-en').classList.remove('hidden');
+        } else if (lang === 'fil') {
+            document.getElementById('privacy-notice-fil').classList.remove('hidden');
         }
     }
 
     function goToClientProfileEn() {
         if (document.getElementById('accept-privacy-en').checked) {
-            document.getElementById(`accept-privacy-en`).classList.add('hidden');
-            document.getElementById(`privacy-notice`).classList.add('hidden');
-            document.getElementById(`client-profile-en`).classList.remove('hidden');
+            document.getElementById('privacy-notice').classList.add('hidden');
+            document.getElementById('client-profile-en').classList.remove('hidden');
         } else {
             alert('Please accept the privacy notice to continue.');
         }
@@ -667,9 +709,8 @@
 
     function goToClientProfileFil() {
         if (document.getElementById('accept-privacy-fil').checked) {
-            document.getElementById(`accept-privacy-fil`).classList.add('hidden');
-            document.getElementById(`privacy-notice`).classList.add('hidden');
-            document.getElementById(`client-profile-fil`).classList.remove('hidden');
+            document.getElementById('privacy-notice').classList.add('hidden');
+            document.getElementById('client-profile-fil').classList.remove('hidden');
         } else {
             alert('Please accept the privacy notice to continue.');
         }
@@ -871,21 +912,17 @@ function submitClientProfileFil() {
         .catch(error => console.error('Error:', error));
     }
 
-    function redirectToLanguageSelectionEn() {
-    // Hide acknowledgement page
-    document.getElementById('acknowledgement-page-en').classList.add('hidden');
+    function redirectToLanguageSelection() {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
 
-    // Show language selection page
+    // Reset privacy notice checkboxes
+    document.getElementById('accept-privacy-en').checked = false;
+    document.getElementById('accept-privacy-fil').checked = false;
+
+    // Show the language selection section
     document.getElementById('language-selection').classList.remove('hidden');
-    }
-
-    function redirectToLanguageSelectionFil() {
-    // Hide acknowledgement page
-    document.getElementById('acknowledgement-page-fil').classList.add('hidden');
-
-    // Show language selection page
-    document.getElementById('language-selection').classList.remove('hidden');
-    }
+}
 
     function submitFormData(formData) {
         google.script.run
