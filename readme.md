@@ -24,8 +24,7 @@ The Automated Sheet-Web Application Feedback-form-csm is a web application desig
 
 1. **Clone the Repository**
 
-   ```bash
-git clone https://github.com/dean2699/feedback-form-csm
+   ```bash git clone https://github.com/dean2699/feedback-form-csm
 
 Google Apps Script Setup
 

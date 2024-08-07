@@ -138,6 +138,23 @@ select option[disabled] {
             display: none;
         }
 
+/* Apply styles to the select element */
+select {
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 10px;   /* Increase padding for better spacing */
+    width: 100%;      /* Make the select box take the full width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: Style the select element for better appearance */
+select:focus {
+    background-color: #009700; /* Change the background color when focused */
+    color: white;              /* Change the text color to ensure readability */
+    border-color: #e7ffe7;    /* Change the border color when focused */
+    outline: none;            /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add shadow for better focus indication */
+}
+
     </style>
 </head>
 <body>
@@ -237,7 +254,7 @@ select option[disabled] {
         </div>
         <div>
             <label for="contact-en">Contact Number:</label>
-            <input type="text" id="contact-en" name="contact" placeholder="Enter your contact number" />
+            <input type="text" id="contact-en" name="contact" maxlength="11" placeholder="Enter your contact number" />
             <span id="contact-error" class="error-message"></span>
         </div>
         <div>
@@ -312,7 +329,7 @@ select option[disabled] {
         </div>
         <div>
             <label for="contact-fil">Numero ng Contact:</label>
-            <input type="text" id="contact-fil" name="contact" placeholder="Ilagay ang iyong numero ng contact" />
+            <input type="text" id="contact-fil" name="contact" maxlength="11" placeholder="Ilagay ang iyong numero ng contact" />
             <span id="contact-error-fil" class="error-message"></span>
         </div>
         <div>
@@ -765,14 +782,22 @@ select option[disabled] {
         isValid = false;
     }
 
-    // Validate age
+    // Validate Contact Number
+    var contactPattern = /^\d{11}$/;
+    if (!contactPattern.test(contact)) {
+        document.getElementById('contact-error-en').textContent = 'Contact number must be exactly 11 digits long.';
+        document.getElementById('contact-error-en').classList.add('visible');
+        isValid = false;
+    }
+
+    // Validate Age
     if (isNaN(age) || age <= 17 || age > 120) {
         document.getElementById('age-error-en').textContent = 'Age must be between 18 and 120.';
         document.getElementById('age-error-en').classList.add('visible');
         isValid = false;
     }
 
-    // Validate region
+    // Validate Region
     if (!region || region === 'Select your answer') {
         document.getElementById('region-error-en').textContent = 'Region is required.';
         document.getElementById('region-error-en').classList.add('visible');
@@ -841,14 +866,22 @@ function submitClientProfileFil() {
         isValid = false;
     }
 
-    // Validate age
+    // Validate Contact Number
+    var contactPattern = /^\d{11}$/;
+    if (!contactPattern.test(contact)) {
+        document.getElementById('contact-error-fil').textContent = 'Ang contact number ay dapat magkaroon ng eksaktong 11 digits.';
+        document.getElementById('contact-error-fil').classList.add('visible');
+        isValid = false;
+    }
+
+    // Validate Age
     if (isNaN(age) || age <= 17 || age > 120) {
         document.getElementById('age-error-fil').textContent = 'Ang edad ay dapat nasa pagitan ng 18 at 120.';
         document.getElementById('age-error-fil').classList.add('visible');
         isValid = false;
     }
 
-    // Validate region
+    // Validate Region
     if (!region || region === 'Piliin ang iyong sagot') {
         document.getElementById('region-error-fil').textContent = 'Ang rehiyon ay kinakailangan.';
         document.getElementById('region-error-fil').classList.add('visible');
