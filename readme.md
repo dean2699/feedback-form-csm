@@ -6,7 +6,7 @@ The Automated Sheet-Web Application Feedback-form-csm is a web application desig
 
 ## Features
 
-- **Language Selection**: Supports English and Filipino languages.
+- **Language Selection**: Supports English, Filipino and Bisaya languages.
 - **Client Profile Submission**: Collects client details and preferences.
 - **Feedback Questions**: Gathers feedback through various survey questions.
 - **Acknowledgement Page**: Confirms receipt of feedback and provides a thank-you message.
@@ -24,7 +24,7 @@ The Automated Sheet-Web Application Feedback-form-csm is a web application desig
 
 1. **Clone the Repository**
 
-   ```bash git clone https://github.com/dean2699/feedback-form-csm
+   ```bash git clone https://github.com/dean2699/feedback-form-csm```
 
 Google Apps Script Setup
 

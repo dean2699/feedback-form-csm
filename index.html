@@ -163,7 +163,8 @@ select:focus {
         <h3>Choose Language</h3>
         <p>Thank you for your time in providing feedback regarding the service of our Office. We appreciate the feedback which helps us learn to serve you better!</p>
         <button onclick="selectLanguage('en'); scrollToTop();">English</button>
-        <button onclick="selectLanguage('fil'); scrollToTop();">Filipino</button>
+        <button onclick="selectLanguage('fil'); scrollToTop();">Tagalog</button>
+        <button onclick="selectLanguage('bis'); scrollToTop();">Bisaya</button>
     </div>
 
     <!-- Privacy Notice -->
@@ -232,6 +233,39 @@ select:focus {
             <button onclick="goToClientProfileFil(); scrollToTop();">Continue</button>
         </div>
     </div>
+
+        <!-- Bisaya Privacy Notice -->
+    <div id="privacy-notice-bis" class="language-content hidden">
+        <p>
+            Kini aro ipahibalo nga ang mga personal nga datos nga gihatag sa Office of the Vice President, Southern Mindanao Satellite Office, gamiton alang sa katuyoan nga matuman ang mga kinahanglanon sa pag fill-up sa Client Satisfaction Survey nga gikinahanglan usab sa Anti-Red Tape Authority (ARTA) og para sa pagpaayo sa serbisyo nga ginahatag sa mga kliyente. Ang kliyente adunay katungod nga mubalibad sa paghatag sa iyang personal nga datos sa pag fill-up sa Client Satisfaction Survey.
+        </p>
+        <p>
+            Ang Office of the Vice President, Southern Mindanao Satellite Office komitado sa pagsiguro nga ang tanang personal nga datos nga giproseso sa buhatan maprotektahan sa tanang panahon ug subay sa Republic Act No. 10173, o nailhan nga Data Privacy Act of 2012, ang katugbang nga Implementing Rules and Procedures, ug may kalabutan nga mga isyu sa National Privacy Commission.
+        </p>
+        <p>
+            Ang datos nga hilisgutan adunay katungod na:
+        </p>
+        <ul>
+            <li>Pagpangayo ug pagpahibalo sa mga detalye bahin sa matang sa personal nga datos nga giproseso, ang katuyoan sa pagproseso, ug kung giunsa kini giproseso sa opisina lakip ang mga gigikanan, nakadawat, pamaagi, pagbutyag sa mga ikatulo nga partido ug ilang mga identidad, awtomatiko nga proseso, paagi sa pagtipig, panahon sa pagtipig, paagi sa paglabay, ug bisan unsang mga pagbag-o sa ingon nga mga kalihokan sa pagproseso sa wala pa kini himuon.</li>
+            <li>Makatarunganon nga pag-access sa ilang personal nga datos kung gipangayo. Ang mga saop adunay katungod sa pagrepaso ug pag-usab sa ilang personal nga datos nga giproseso sa opisina kung adunay mga sayup. Paglalis nga dili tukma o sayup sa personal nga datos nga giproseso sa opisina.</li>
+            <li>Paglalis nga dili tukma o sayup sa personal nga datos nga giproseso sa opisina.</li>
+            <li>Isalikway ang dugang pagproseso sa ilang personal nga datos, lakip ang katungod sa pagsuspende, withdraw og pagtanggal sa ilang personal nga datos nga anaa sa buhatan nga sayop ang pagkolekta o supak sa balaod nga giproseso.</li>
+        </ul>
+        <p>
+            Sa pagsumite niini nga porma, ang Data Subject nakabasa ug nakasabut sa Privacy Notice ug mihatag og pagtugot sa opisina sa pagproseso sa gihatag nga datos.
+        </p>
+        <p>
+            Kung adunay bisan unsang mga pangutana, reklamo, ug/o mga sugyot bahin sa among pahibalo sa pagkapribado, mahimo nimong ipahibalo ang tawo nga imong kontak sa opisina aron mapauswag namon ang among mga karon nga gawi.
+        </p>
+        <div class="acceptance">
+            <input type="checkbox" id="accept-privacy-bis" />
+            <label for="accept-privacy-bis">Gidawat nako ang mga termino ug kondisyon.</label>
+        </div>
+        <div class="button-group">
+            <button onclick="goToClientProfileBis(); scrollToTop();">Magpadayon</button>
+            </div>
+        </div>
+    </div>
 </div>
 
        <!-- Client Profile -->
@@ -255,7 +289,7 @@ select:focus {
         <div>
             <label for="contact-en">Contact Number:</label>
             <input type="text" id="contact-en" name="contact" maxlength="11" placeholder="Enter your contact number" />
-            <span id="contact-error" class="error-message"></span>
+            <span id="contact-error-en" class="error-message"></span>
         </div>
         <div>
             <label for="age-en">Age:</label>
@@ -277,8 +311,8 @@ select:focus {
             <select id="gender-en" name="gender">
                 <option value="" disabled selected>Select your answer</option>
                 <option value="N/A">Prefer not to say</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="Lalaki">Male</option>
+                <option value="Babae">Female</option>
             </select>
             <span id="gender-error" class="error-message"></span>
         </div>
@@ -287,9 +321,9 @@ select:focus {
             <select id="client-type-en" name="client-type">
                 <option value="" disabled selected>Select your answer</option>
                 <option value="N/A">Prefer not to say</option>
-                <option value="Citizen">Citizen</option>
-                <option value="Businessman/woman">Businessman/woman</option>
-                <option value="Government employee">Government employee</option>
+                <option value="Mamamayan">Citizen</option>
+                <option value="Negosyo">Businessman/woman</option>
+                <option value="Kawani ng Gobyerno">Government employee</option>
             </select>
             <span id="client-type-error" class="error-message"></span>
         </div>
@@ -298,8 +332,8 @@ select:focus {
             <select id="pwd-en" name="pwd">
                 <option value="" disabled selected>Select your answer</option>
                 <option value="N/A">Prefer not to say</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Oo">Yes</option>
+                <option value="Hindi">No</option>
             </select>
             <span id="pwd-error" class="error-message"></span>
         </div>
@@ -380,6 +414,81 @@ select:focus {
         </div>
         <div class="button-group">
             <button type="button" onclick="submitClientProfileFil(); scrollToTop();">Susunod</button>
+        </div>
+    </form>
+</div>
+
+<!-- Bisaya Client Profile -->
+<div class="section hidden" id="client-profile-bis">
+    <h2>Profile ni Kliyente</h2>
+    <form id="client-profile-form-bis">
+        <div>
+            <label for="service">Serbisyo:</label>
+            <select id="service-bis" name="service">
+                <option value="" disabled selected>Pilia ang inyohang tubag</option>
+                <option value="Burial Assistance">Burial Assistance</option>
+                <option value="Medical Assistance">Medical Assistance</option>
+            </select>
+            <span id="service-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="name-bis">Pangalan:</label>
+            <input type="text" id="name-bis" name="name" placeholder="Ibutang ang imong pangalan" />
+            <span id="name-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="contact-bis">Numero o Kontak:</label>
+            <input type="text" id="contact-bis" name="contact" maxlength="11" placeholder="Ibutang ang imong numero o kontak" />
+            <span id="contact-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="age-bis">Pangidaron:</label>
+            <input type="number" id="age-bis" name="age" placeholder="Ibutang ang imong pangidaron" />
+            <span id="age-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="region-bis">Rehiyon:</label>
+            <select id="region-bis" name="region">
+                <option value="" disabled selected>Pilia ang inyohang tubag</option>
+                <option value="Region X">Region X</option>
+                <option value="Region XI">Region XI</option>
+                <option value="Region XII">Region XII</option>
+            </select>
+            <span id="region-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="gender-bis">Kinatawhan:</label>
+            <select id="gender-bis" name="gender">
+                <option value="" disabled selected>Pilia ang inyohang tubag</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+                <option value="Lalaki">Lalaki</option>
+                <option value="Babae">Babae</option>
+            </select>
+            <span id="gender-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="client-type-bis">Tipo sa Kliyente:</label>
+            <select id="client-type-bis" name="client-type">
+                <option value="" disabled selected>Pilia ang inyohang tubag</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+                <option value="Mamamayan">Lungsoranon</option>
+                <option value="Negosyo">Negosyante</option>
+                <option value="Kawani ng Gobyerno">Empleyado sa Gobyerno</option>
+            </select>
+            <span id="client-type-error-bis" class="error-message"></span>
+        </div>
+        <div>
+            <label for="pwd-bis">Naa ba kay apan/deperensya?</label>
+            <select id="pwd-bis" name="pwd">
+                <option value="" disabled selected>Pilia ang inyohang tubag</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+                <option value="Oo">Oo</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+            <span id="pwd-error-bis" class="error-message"></span>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="submitClientProfileBis(); scrollToTop();">Sunod</button>
         </div>
     </form>
 </div>
@@ -547,7 +656,7 @@ select:focus {
     </form>
 </div>
 
-<!-- Mga Tanong sa Feedback -->
+<!-- Feedback Tagalog-->
 <div class="section hidden" id="feedback-questions-fil">
     <h2>Mga Tanong sa Feedback</h2>
     <form id="feedback-form-fil">
@@ -703,6 +812,163 @@ select:focus {
     </form>
 </div>
 
+<!-- BISAYA Feedback Questions -->
+    <div class="section hidden" id="feedback-questions-bis">
+        <h2>Feedback nga mga Pangutana</h2>
+        <form id="feedback-form-bis">
+        <div>
+            <label for="awareness-bis">Pamilyar ba ka sa Citizen's Charter?</label>
+            <select id="awareness-bis" name="awareness">
+                <option value="" disabled selected>Pilia ang inyohang tubag</option>
+                <option value="Oo">Oo</option>
+                <option value="Hindi">Dili</option>
+                <option value="Nalaman ko ang Citizen’s Charter nang makita ko ito sa tanggapang ito.">Nahibal-an nako ang Citizen's Charter sa pagkakita nako niini diri sa opisina.</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="visibility-bis">Dali ra ba nimo makita ang Citizen's Charter diri sa opisina? Unsa kini kadali makita?
+            </label>
+            <select id="visibility-bis" name="visibility">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Madaling makita">Dali ra makita</option>
+                <option value="Medyo madaling makita">Medyo dali ra makita</option>
+                <option value="Mahirap makita">Lisod makita</option>
+                <option value="Hindi makita">Dili gyud makita</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="helpfulness-bis">Nakatabang ba ang Citizen's Charter sa inyong transaksyon?</label>
+            <select id="helpfulness-bis" name="helpfulness">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na nakatulong">Hingpit na nakatabang</option>
+                <option value="Nakatulong">Nakatabang</option>
+                <option value="Hindi nakatulong">Wala nakatabang</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+         <!-- Repeat for SQD1 to SQD8 -->
+        <div>
+            <label for="sqd0-bis">SQD0. Kinatibuk-ang grado:</label>
+            <select id="sqd0-bis" name="sqd0">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <!-- Ulitin para sa SQD1 hanggang SQD8 -->
+        <div>
+            <label for="sqd1-bis">SQD1. Kapaspas sa proseso:</label>
+            <select id="sqd1-bis" name="sqd1">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <!-- Idagdag ang karagdagang mga tanong SQD2 hanggang SQD8 sa katulad na paraan -->
+        <div>
+            <label for="sqd2-bis">SQD2. Pagsunod sa opisina sa tama nga proseso:</label>
+            <select id="sqd2-bis" name="sqd2">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd3-bis">SQD3. Pasilidad:</label>
+            <select id="sqd3-bis" name="sqd3">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd4-bis">SQD4. Pagkahibalo sa impormasyon bahin sa proseso:</label>
+            <select id="sqd4-bis" name="sqd4">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd5-bis">SQD5. Kantidad sa gibayad para sa serbisyo:</label>
+            <select id="sqd5-bis" name="sqd5">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd6-bis">SQD6. Pantay nga pag abi-abi sa mga kliyente:</label>
+            <select id="sqd6-bis" name="sqd6">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd7-bis">SQD7. Pagkamatinabangon og matinahuron sa mga kawani:</label>
+            <select id="sqd7-bis" name="sqd7">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="sqd8-bis">SQD8. Pagbigay ng hininging serbisyo:</label>
+            <select id="sqd8-bis" name="sqd8">
+                <option value="" disabled selected>Pilia ang inyohang tubag.</option>
+                <option value="Lubos na Nasiyahan">Nalipay pag-ayo</option>
+                <option value="Nasiyahan">Nalipay</option>
+                <option value="Neutral">Sakto lang</option>
+                <option value="Hindi Naisayahan">Wala nalipay</option>
+                <option value="Lubos na Hindi Naisayahan">Wala nalipay pag-ayo</option>
+                <option value="N/A">Mas gusto nako dili tubagon</option>
+            </select>
+        </div>
+        <div>
+            <label for="comments-bis">Dugang nga Komento o sugyot:</label>
+            <textarea id="comments-bis" name="comments" placeholder="Ilagay ang iyong mga komento at suhestiyon"></textarea>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="submitFeedbackBis(); scrollToTop();">I-Sumite ang Feedback</button>
+        </div>
+    </form>
+</div>
+
 <!-- Acknowledgment Page -->
 <div class="section hidden" id="acknowledgement-page-en">
     <h2>Thank You for Your Feedback!</h2>
@@ -717,6 +983,14 @@ select:focus {
     <p>Ang iyong mga sagot ay matagumpay na naisumite. Kami ay nagpapahalaga sa feedback na iyong ibinigay upang mas mapabuti ang aming serbisyo sa susunod na pagkakataon.</p>
     <div class="button-group">
         <button onclick="redirectToLanguageSelection(); scrollToTop();">Bumalik sa Pagpili ng Wika</button>
+    </div>
+</div>
+
+<div class="section hidden" id="acknowledgement-page-bis">
+    <h2>Daghang Salamat sa inyohang mga feedback!</h2>
+    <p>Ang inyuhang mga tubag kay nag malampuson na gisumite. Pagpasalamat sa mga tubag alang sa pag hatag ug pinaka maayong pag serbisyo sa hingtungdan.</p>
+    <div class="button-group">
+        <button onclick="redirectToLanguageSelection(); scrollToTop();">Balik sa pagpili og Dialecto</button>
     </div>
 </div>
 
@@ -735,6 +1009,8 @@ select:focus {
             document.getElementById('privacy-notice-en').classList.remove('hidden');
         } else if (lang === 'fil') {
             document.getElementById('privacy-notice-fil').classList.remove('hidden');
+        } else if (lang === 'bis'){
+            document.getElementById('privacy-notice-bis').classList.remove('hidden');
         }
     }
 
@@ -751,6 +1027,15 @@ select:focus {
         if (document.getElementById('accept-privacy-fil').checked) {
             document.getElementById('privacy-notice').classList.add('hidden');
             document.getElementById('client-profile-fil').classList.remove('hidden');
+        } else {
+            alert('Please accept the privacy notice to continue.');
+        }
+    }
+
+    function goToClientProfileBis() {
+        if (document.getElementById('accept-privacy-bis').checked) {
+            document.getElementById('privacy-notice').classList.add('hidden');
+            document.getElementById('client-profile-bis').classList.remove('hidden');
         } else {
             alert('Please accept the privacy notice to continue.');
         }
@@ -861,7 +1146,7 @@ function submitClientProfileFil() {
 
     // Validate Service
     if (!service || service === 'Piliin ang iyong sagot') {
-        document.getElementById('service-error-fil').textContent = 'Ang serbisyo ay kinakailangan.';
+        document.getElementById('service-error-fil').textContent = 'Ang serbisyo ay kinakailangan';
         document.getElementById('service-error-fil').classList.add('visible');
         isValid = false;
     }
@@ -869,21 +1154,21 @@ function submitClientProfileFil() {
     // Validate Contact Number
     var contactPattern = /^\d{11}$/;
     if (!contactPattern.test(contact)) {
-        document.getElementById('contact-error-fil').textContent = 'Ang contact number ay dapat magkaroon ng eksaktong 11 digits.';
+        document.getElementById('contact-error-fil').textContent = 'Ang contact number ay dapat magkaroon ng eksaktong 11 digits';
         document.getElementById('contact-error-fil').classList.add('visible');
         isValid = false;
     }
 
     // Validate Age
     if (isNaN(age) || age <= 17 || age > 120) {
-        document.getElementById('age-error-fil').textContent = 'Ang edad ay dapat nasa pagitan ng 18 at 120.';
+        document.getElementById('age-error-fil').textContent = 'Ang edad ay dapat nasa pagitan ng 18 at 120';
         document.getElementById('age-error-fil').classList.add('visible');
         isValid = false;
     }
 
     // Validate Region
     if (!region || region === 'Piliin ang iyong sagot') {
-        document.getElementById('region-error-fil').textContent = 'Ang rehiyon ay kinakailangan.';
+        document.getElementById('region-error-fil').textContent = 'Ang rehiyon ay kinakailangan';
         document.getElementById('region-error-fil').classList.add('visible');
         isValid = false;
     }
@@ -915,6 +1200,90 @@ function submitClientProfileFil() {
             console.log(result);
             document.getElementById('client-profile-fil').classList.add('hidden');
             document.getElementById('feedback-questions-fil').classList.remove('hidden');
+            submitFormData(formData);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong. Please try again.');
+        });
+    }
+}
+
+function submitClientProfileBis() {
+    // Clear previous error messages and hide them
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.textContent = '';
+        el.classList.remove('visible');
+    });
+
+    // Get form values
+    var service = document.getElementById('service-bis').value;
+    var name = document.getElementById('name-bis').value.trim();
+    var contact = document.getElementById('contact-bis').value.trim();
+    var age = parseInt(document.getElementById('age-bis').value, 10);
+    var region = document.getElementById('region-bis').value;
+    var gender = document.getElementById('gender-bis').value;
+    var clientType = document.getElementById('client-type-bis').value;
+    var pwd = document.getElementById('pwd-bis').value;
+
+    var isValid = true;
+
+    // Validate Service
+    if (!service || service === 'Piliin ang iyong sagot') {
+        document.getElementById('service-error-bis').textContent = 'Gikinahanglan ang serbisyo';
+        document.getElementById('service-error-bis').classList.add('visible');
+        isValid = false;
+    }
+
+    // Validate Contact Number
+    var contactPattern = /^\d{11}$/;
+    if (!contactPattern.test(contact)) {
+        document.getElementById('contact-error-bis').textContent = 'Dapat tama ug kumpleto ang onse ka numero sa selpon';
+        document.getElementById('contact-error-bis').classList.add('visible');
+        isValid = false;
+    }
+
+    // Validate Age
+    if (isNaN(age) || age <= 17 || age > 120) {
+        document.getElementById('age-error-bis').textContent = 'Dapat anaa sa edad 18 pataas ang nagahatubag sa pangutana';
+        document.getElementById('age-error-bis').classList.add('visible');
+        isValid = false;
+    }
+
+    // Validate Region
+    if (!region || region === 'Piliin ang iyong sagot') {
+        document.getElementById('region-error-bis').textContent = 'Kinahanglan adunay rehiyon';
+        document.getElementById('region-error-bis').classList.add('visible');
+        isValid = false;
+    }
+
+    // Other validations can be added here as needed
+
+    // If form is valid, proceed with submission
+    if (isValid) {
+        var formData = {
+            service: service || "N/A",
+            name: name || "N/A",
+            contact: contact || "N/A",
+            age: age || "N/A",
+            region: region || "N/A",
+            gender: gender || "N/A",
+            clientType: clientType || "N/A",
+            pwd: pwd || "N/A"
+        };
+        
+        fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById('client-profile-bis').classList.add('hidden');
+            document.getElementById('feedback-questions-bis').classList.remove('hidden');
             submitFormData(formData);
         })
         .catch(error => {
@@ -992,6 +1361,40 @@ function submitClientProfileFil() {
         .catch(error => console.error('Error:', error));
     }
 
+    function submitFeedbackBis() {
+        var feedbackData = {
+            awareness: document.getElementById(`awareness-bis`).value,
+            visibility: document.getElementById(`visibility-bis`).value,
+            helpfulness: document.getElementById(`helpfulness-bis`).value,
+            sqd0: document.getElementById(`sqd0-bis`).value,
+            sqd1: document.getElementById(`sqd1-bis`).value,
+            sqd2: document.getElementById(`sqd2-bis`).value,
+            sqd3: document.getElementById(`sqd3-bis`).value,
+            sqd4: document.getElementById(`sqd4-bis`).value,
+            sqd5: document.getElementById(`sqd5-bis`).value,
+            sqd6: document.getElementById(`sqd6-bis`).value,
+            sqd7: document.getElementById(`sqd7-bis`).value,
+            sqd8: document.getElementById(`sqd8-bis`).value,
+            comments: document.getElementById(`comments-bis`).value
+        };
+
+        fetch('1EQiP51EJB4fzXrY7iSsOUuFkvQo7J7t81fI0EUZfJtcYGWzFsQbSfEMV', { // Replace with your Google Apps Script URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(feedbackData)
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+            document.getElementById(`feedback-questions-bis`).classList.add('hidden');
+            document.getElementById(`acknowledgement-page-bis`).classList.remove('hidden');
+            submitFeedbackData(feedbackData);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
     function redirectToLanguageSelection() {
     // Hide all sections
     document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
@@ -999,6 +1402,7 @@ function submitClientProfileFil() {
     // Reset privacy notice checkboxes
     document.getElementById('accept-privacy-en').checked = false;
     document.getElementById('accept-privacy-fil').checked = false;
+    document.getElementById('accept-privacy-bis').checked = false;
 
     // Show the language selection section
     document.getElementById('language-selection').classList.remove('hidden');
@@ -1013,7 +1417,11 @@ function submitClientProfileFil() {
     function submitFeedbackData(feedbackData) {
         google.script.run
             .withFailureHandler(onFailure)
-            .submitFeedbackandSort(feedbackData);
+            .submitFeedback(feedbackData);
+
+            google.script.run
+                .withFailureHandler(onFailure)
+                .sortDataToSheets();
     }
 
     function onFailure(error) {
@@ -1028,4 +1436,3 @@ function submitClientProfileFil() {
 </script>
 </body>
 </html>
-

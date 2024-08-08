@@ -61,13 +61,37 @@ function submitFeedback(feedbackData) {
   return response;
 }
 
-function submitFeedbackAndSort(feedbackData) {
-  submitFeedback(feedbackData);
-  sortDataToSheets();
-}
-
-function sortDataToSheets(){
-var client_values = client_profile_sheet.getRange(lastrow_cps, 1, 1, 9).getValues()[0];
-var csm_values = csm_sheet.getRange(lastrow_csm, 1, 1, 14).getValues()[0];
-
+function sortDataToSheets() {
+  // Get the latest client profile and CSM sheet values
+  var client_values = client_profile_sheet.getRange(lastrow_cps, 1, 1, 9).getValues()[0];
+  var csm_values = csm_sheet.getRange(lastrow_csm, 1, 1, 14).getValues()[0];
+  
+  // Destructure the values from the client profile sheet
+  var [date_value, , name_value, , age_value, region_value, gender_value, type_value, pwd_value] = client_values;
+  var trigger = client_values[1];
+  
+  // Destructure the values from the CSM sheet
+  var [, awareness_value, visibility_value, helpfulness_value, sqd0_value, sqd1_value, sqd2_value, sqd3_value, sqd4_value, sqd5_value, sqd6_value, sqd7_value, sqd8_value, comments_value] = csm_values;
+  
+  // Determine the appropriate sheet based on the trigger value
+  var data_range;
+  if (trigger === "Medical Assistance") {
+    data_range = medical_assistance_sheet.getRange(lastrow_ma + 1, 1, 1, 20);
+  } else if (trigger === "Burial Assistance") {
+    data_range = burial_assistance_sheet.getRange(lastrow_ba + 1, 1, 1, 20);
+  } else {
+    Logger.log("Trigger not recognized: " + trigger);
+    return; // Exit the function if trigger is not recognized
+  }
+  
+  // Define the data to be written into the selected sheet
+  var data = [
+    date_value, name_value, age_value, region_value, gender_value, type_value, pwd_value,
+    awareness_value, visibility_value, helpfulness_value,
+    sqd0_value, sqd1_value, sqd2_value, sqd3_value, sqd4_value, sqd5_value, sqd6_value, sqd7_value, sqd8_value,
+    comments_value
+  ];
+  
+  // Write the data to the selected range
+  data_range.setValues([data]);
 }
